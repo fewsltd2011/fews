@@ -1,0 +1,161 @@
+{% extends 'dash_layout.html' %}
+
+{% block title %}Edit Project{% endblock %}
+
+{% block content %}
+<main class="h-full overflow-y-auto">
+  <div class="container px-6 mx-auto grid">
+    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+      Project
+    </h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="mb-6">
+                {% for category, message in messages %}
+                    <li class="text-sm p-2 my-2 rounded 
+                        {% if category == 'project_creation_error' %}
+                            bg-red-600 text-white
+                        {% elif category == 'project_creation_success' %}
+                            bg-green-100 text-green-700
+                        {% else %}
+                            bg-gray-600 text-white
+                        {% endif %}
+                    ">
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- New Table -->
+    <div class="w-full overflow-hidden">
+      <div class="w-full">
+        <form class="mb-6" method="POST" action="{{ url_for('dashboard.edit_project', project_id=project.id) }}" enctype="multipart/form-data">
+          <!-- Modal title -->
+          <p class="mb-2 text-lg font-semibold text-gray-700 dark:text-gray-300">
+            Edit Project
+          </p>
+          <!-- Input fields -->
+          <div class="space-y-4">          
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Title</span>
+              <input
+                type="text"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="Enter title"
+                name="title"
+                value="{{ project.title }}" 
+                required
+              />
+            </label>
+            <!-- Description -->
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Description</span>
+              <textarea
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="Enter description"
+                name="desc"
+                required
+              >{{ project.desc }}</textarea>
+            </label>
+            <!-- Status -->
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Status</span>
+              <input
+                type="text"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="Enter status (e.g., active, completed)"
+                name="status"
+                value="{{ project.status }}" 
+                required
+              />
+            </label>
+            <!-- Period -->
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Period</span>
+              <input
+                type="text"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="Enter period (e.g., Jan 2023 - Dec 2023)"
+                name="period"
+                value="{{ project.period }}" 
+                required
+              />
+            </label>
+            <!-- Scope of Service -->
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Scope of Service</span>
+              <textarea
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="Enter scope of service"
+                name="scope_of_service"
+                required
+              >{{ project.scope_of_service }}</textarea>
+            </label>
+            <!-- Project Location -->
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Project Location</span>
+              <input
+                type="text"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="Enter project location"
+                name="project_location"
+                value="{{ project.project_location }}" 
+                required
+              />
+            </label>
+            <!-- Funder -->
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Funder</span>
+              <input
+                type="text"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="Enter funder"
+                name="funder"
+                value="{{ project.funder }}" 
+                required
+              />
+            </label>
+            <!-- Client -->
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">Client</span>
+              <input
+                type="text"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="Enter client"
+                name="client"
+                value="{{ project.client }}" 
+                required
+              />
+            </label>
+            <!-- Image URL -->
+            <label class="block text-sm">
+              <span class="text-gray-700 dark:text-gray-400">New Image (Optional)</span>
+              <input
+                type="file"
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                placeholder="Enter image URL (optional)"
+                name="image_url"
+              />
+            </label>
+          </div>
+          <!-- Modal footer -->
+          <footer class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800">
+            <button
+              type="submit"
+              class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+            >
+              Update Project
+            </button>
+          </footer>
+        </form>
+        
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+{% endblock %}

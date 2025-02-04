@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<!-- Services Section -->
+    <section class="w-full pb-16 bg-white mt-[80px] md:mt-0">
+        <div class="padMain relative text-center bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/slide3.jpg') }}');">
+            <div class="absolute inset-0 bg-black opacity-90"></div> <!-- Overlay -->
+            <div class="relative z-10 text-white px-2 sm:px-4 py-16">
+                <h1 class="text-3xl font-bold uppercase">Get in touch!</h1>
+                <p class="about-intro text-sm sm:text-md mx-auto max-w-xl mt-2 text-center">
+                    We will be glad to hear from you
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto p-8 mt-5">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">WHERE TO FIND US</h2>
+            <div class="border-b-4 gradient-border w-16 mb-8"></div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  <ul class="mb-6">
+                      {% for category, message in messages %}
+                          <li class="text-sm p-2 my-2 rounded 
+                              {% if category == 'feedback_creation_error' %}
+                                  bg-red-600 text-white
+                              {% elif category == 'feedback_creation_success' %}
+                                  bg-green-100 text-green-700
+                              {% else %}
+                                  bg-gray-600 text-white
+                              {% endif %}
+                          ">
+                              {{ message }}
+                          </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+              {% endwith %}
+            <div class="flex flex-col md:flex-row bg-white relative w-[100%] md:w-[60%]"> 
+              <!-- Form Section -->
+              <div class="p-6 border-[6px] gradient-border w-full">
+                <form action="#" method="POST" class="space-y-4 w-[100%] md:w-[93%]" action="{{ url_for('contact_us') }}">
+                    <div class="space-y-4">
+                        <div>
+                          <input
+                            required
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            class="mt-1 block w-full bg-transparent border-b-[1px] gradient-border focus:border-gradient-to-r focus:from-blue-500 focus:via-purple-500 focus:to-pink-500 focus:outline-none transition"
+                          />
+                        </div>
+                        <div>
+                          <input
+                            required
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            class="mt-1 block w-full bg-transparent border-b-[1px] gradient-border focus:border-gradient-to-r focus:from-blue-500 focus:via-purple-500 focus:to-pink-500 focus:outline-none transition"
+                          />
+                        </div>
+                        <div>
+                          <input
+                            required
+                            type="text"
+                            id="phonenumber"
+                            name="phonenumber"
+                            placeholder="Enter your phone number"
+                            class="mt-1 block w-full bg-transparent border-b-[1px] gradient-border focus:border-gradient-to-r focus:from-blue-500 focus:via-purple-500 focus:to-pink-500 focus:outline-none transition"
+                          />
+                        </div>
+                        <div>
+                          <textarea
+                            required
+                            id="message"
+                            name="message"
+                            rows="4"
+                            placeholder="Enter your message"
+                            class="mt-1 block w-full bg-transparent border-b-[1px] gradient-border focus:border-gradient-to-r focus:from-blue-500 focus:via-purple-500 focus:to-pink-500 focus:outline-none transition"
+                          ></textarea>
+                        </div>
+                      </div>
+                      
+                  <button type="submit" class="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-2 px-4 rounded-sm">Submit</button>
+                </form>
+              </div>
+              <!-- Contact Info Section -->
+              <div class="bg-gradient-to-r from-gray-900 to-gray-800 text-white p-8 items-center relative w-[100%] h-auto md:absolute md:w-[70%] md:h-[80%] md:top-1/2 right-0 transform md:translate-x-[90%] md:-translate-y-1/2">
+                <h3 class="text-md font-semibold mb-2">PHONE NUMBER</h3>
+                <p class="mb-4 text-sm">(250) 700 000 00</p>
+                <h3 class="text-md font-semibold mb-2">EMAIL ADDRESS</h3>
+                <p class="mb-4 mb-4 text-sm">info@fews.com</p>
+                <h3 class="text-md font-semibold mb-2">ADDRESS INFO</h3>
+                <p class="text-sm">24R6+F6M, KG 11 Ave, Kigali</p>
+              </div>
+            </div>
+        </div>
+        <div class="padMain">
+            <iframe class="h-[400px] w-full md:w-[84%] mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.486939416137!2d30.107966875694036!3d-1.9587943367324308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca70019ec04db%3A0xc640c85bb39ec8ce!2sIKAZE%20HOUSE!5e0!3m2!1sen!2srw!4v1737125417383!5m2!1sen!2srw" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}

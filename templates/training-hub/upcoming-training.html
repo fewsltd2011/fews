@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block title %}Upcoming Training | FEWS LTD{% endblock %}
+
+{% block content %}
+<section class="w-full pb-16 bg-white mt-[80px] md:mt-0">
+    <div class="about-header padMain relative text-center bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/slide3.jpg') }}');">
+        <div class="absolute inset-0 bg-black opacity-90"></div> <!-- Overlay -->
+        <div class="relative z-10 text-white px-2 sm:px-4 py-16">
+            <h1 class="text-3xl font-bold uppercase">🚀 Upcoming Training Programs</h1>
+            <p class="about-intro text-sm sm:text-md mx-auto max-w-xl mt-2 text-justify">
+                we offer cutting-edge online and physical training programs designed to bridge the gap between university knowledge and industry demands. Gain hands-on experience and practical skills to excel in your career.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="text-center text-2xl font-bold text-gray-800 mb-8 mt-10">Explore Trainings ↓</h2>
+
+    <!-- Training Items Section -->
+    <div id="trainings" class="mx-auto mt-16 px-6 flex flex-wrap gap-8 justify-center">
+        
+        {% if trainings %}
+            {% for upcomingTraining in trainings %}
+            <div class="bg-gradient-to-r from-white to-gray-50 p-6 rounded-xl shadow-lg border border-gray-200 max-w-md hover:shadow-2xl transition-transform transform hover:scale-105 duration-300">
+                <!-- Header -->
+                <div class="flex justify-between items-center">
+                    <span class="text-xs cust-bg-green text-white px-3 py-1 rounded-full">Upcoming Training</span>
+                    <div class="flex items-center gap-2 text-sm text-gray-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 cust-green">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10m-12 8h14a2 2 0 002-2V9a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <p>Starts: <span class="font-semibold">{{ upcomingTraining.start_date | parse_date_year }}</span></p>
+                    </div>
+                </div>
+
+                <!-- Title -->
+                <h2 class="text-xl font-bold text-gray-800 mt-4 leading-snug">{{ upcomingTraining.training.title }}</h2>
+
+                <!-- Description -->
+                <p class="mt-2 text-gray-600 text-sm">{{ upcomingTraining.training.desc | truncate(100) }}</p>
+
+                <!-- Details -->
+                <div class="flex items-center justify-between mt-4 text-sm text-gray-700">
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
+                        </svg>
+                        <span>Duration: {{ upcomingTraining.training.duration }}</span>
+                    </div>
+                </div>
+
+                <!-- Instructor Info -->
+                <div class="flex items-center gap-2 mt-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-indigo-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 13.621A5.5 5.5 0 1118.88 13.62M12 12v7m0 0H9m3 0h3" />
+                    </svg>
+                    <p class="text-sm">Instructor: <span class="font-semibold">{{ upcomingTraining.training.instructor }}</span></p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center justify-between mt-6">
+                    <a href="{{ url_for('detailed_upcoming_training', training_id=upcomingTraining.id) }}" class="text-blue-600 font-medium hover:underline flex items-center gap-1">
+                        Know Details →
+                    </a>
+                    <a href="{{ url_for('training_request', training_id=upcomingTraining.id) }}" class="px-4 py-2 cust-bg-green text-white text-sm font-semibold rounded-lg shadow transition duration-300">
+                        Register Now
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="text-center py-20">
+                <h2 class="text-2xl font-bold text-gray-800">No Trainings Available</h2>
+                <p class="text-gray-600 mt-4">There are currently no training courses available. Please check back later or contact support for more information.</p>
+                <a href="/" class="mt-6 inline-block px-6 py-3 bg-blue-500 text-white rounded-md">Go Back to Home</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

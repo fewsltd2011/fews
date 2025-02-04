@@ -1,0 +1,261 @@
+<!-- templates/index.html -->
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- About Section -->
+
+<section class="splide mt-[80px] md:mt-0" id="image-slider">
+    <div class="splide__track">
+        <ul class="splide__list">
+            <!-- Slide 1 -->
+
+            {% for slide in slides %}
+            <li class="splide__slide relative">
+                <img src="{{ slide.image_url }}" alt="Image 1" class="h-[600px] w-full object-cover">
+                <!-- Black Overlay -->
+                <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+                    <div class="text-center text-white drop-shadow-2xl animate-fade-in">
+                        <h1 class="animate-text text-5xl font-bold mb-4 hover:text-yellow-400 transition duration-700 ease-in-out transform hover:scale-110 drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
+                            {{ slide.title }}
+                        </h1>
+                        <p class="animate-text text-lg mb-6 italic tracking-wide hover:text-blue-300 transition duration-700 ease-in-out transform hover:translate-x-2 drop-shadow-[0_0_15px_rgba(0,255,255,0.7)]">
+                            {{ slide.desc }}
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            {% endfor %}
+
+            
+        </ul>
+    </div>
+    
+    <!-- Arrows -->
+    <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev">❮</button>
+        <button class="splide__arrow splide__arrow--next">❯</button>
+    </div>
+</section>
+
+
+
+<section class="w-full index-about padMain py-6">
+    <div class="w-full max-w-6xl mx-auto py-16 text-center bg-gradient-to-r from-gray-900 to-gray-800">
+        <h2 class="text-lg md:text-xl font-semibold font-500 text-white">Excellence in Infrastructure Design and Sustainable Solutions</h2>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="text-center py-16 cust-bg padMain">
+    <h1 class="text-lg md:text-3xl font-bold mb-4">Our Core <span class="cust-green">Services</span></h1>
+    <p class="cust-text text-sm md:text-lg mb-12 cust-text-dark">Providing comprehensive infrastructure solutions, sustainable agriculture, and advanced water & sanitation systems to enhance growth and development.</p>
+    <div class="flex flex-wrap justify-center gap-8 px-4 lg:px-16">
+        <!-- Card 1 -->
+        <a href="/services?q=building-infrastructure" class="bg-white flex flex-col items-center justify-start p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in-up w-full sm:w-1/2 lg:w-1/4">
+            <img src="{{ url_for('static', filename='svgs/building-infrastructure.svg') }}" alt="Building Infrastructure" loading="lazy">
+            <h3 class="text-sm md:text-md font-semibold my-2">Building Infrastructure</h3>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="/services?q=transportation-infrastructure" class="bg-white flex flex-col items-center justify-start p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in-up w-full sm:w-1/2 lg:w-1/4">
+            <img src="{{ url_for('static', filename='svgs/transport-infrastructure.svg') }}" alt="Transportation Infrastructure" loading="lazy">
+            <h3 class="text-sm md:text-md font-semibold my-2">Transportation Infrastructure</h3>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="/services?q=green-agriculture" class="bg-white flex flex-col items-center justify-start p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in-up w-full sm:w-1/2 lg:w-1/4">
+            <img src="{{ url_for('static', filename='svgs/agriculture.svg') }}" alt="Green Agriculture" loading="lazy">
+            <h3 class="text-sm md:text-md font-semibold my-2">Green Agriculture</h3>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="/services?q=water-and-sanitation-infrastructure" class="bg-white flex flex-col items-center justify-start p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in-up w-full sm:w-1/2 lg:w-1/4">
+            <img src="{{ url_for('static', filename='svgs/water-infrastructure.svg') }}" alt="Water and Sanitation Infrastructure" loading="lazy">
+            <h3 class="text-sm md:text-md font-semibold my-2">Water and Sanitation Infrastructure</h3>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="/services?q=environment-and-social-safeguards" class="bg-white flex flex-col items-center justify-start p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in-up w-full sm:w-1/2 lg:w-1/4">
+            <img src="{{ url_for('static', filename='svgs/environment.svg') }}" alt="Environment and Social Safeguards" loading="lazy">
+            <h3 class="text-sm md:text-md font-semibold my-2">Environment & Social Safeguards</h3>
+        </a>
+
+        <!-- Card 6 -->
+        <a href="/services?q=energy" class="bg-white flex flex-col items-center justify-start p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in-up w-full sm:w-1/2 lg:w-1/4">
+            <img src="{{ url_for('static', filename='svgs/earth.svg') }}" alt="Energy" loading="lazy">
+            <h3 class="text-sm md:text-md font-semibold my-2">Energy</h3>
+        </a>
+
+        <!-- Card 7 -->
+        <a href="/services?q=differentiator-services" class="bg-white flex flex-col items-center justify-start p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in-up w-full sm:w-1/2 lg:w-1/4">
+            <img src="{{ url_for('static', filename='svgs/differentiator.svg') }}" alt="Differentiator Services" loading="lazy">
+            <h3 class="text-sm md:text-md font-semibold my-2">Differentiator Services</h3>
+        </a>
+
+        <!-- Card 8 -->
+        <a href="/services?q=road-safety" class="bg-white flex flex-col items-center justify-start p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in-up w-full sm:w-1/2 lg:w-1/4">
+            <img src="{{ url_for('static', filename='svgs/road.svg') }}" alt="Road Safety" loading="lazy">
+            <h3 class="text-sm md:text-md font-semibold my-2">Road Safety</h3>
+        </a>
+
+        <!-- Card 9 -->
+        <a href="/services?q=arbitration" class="bg-white flex flex-col items-center justify-start p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 fade-in-up w-full sm:w-1/2 lg:w-1/4">
+            <img src="{{ url_for('static', filename='svgs/arbitration.svg') }}" alt="Arbitration" loading="lazy">
+            <h3 class="text-sm md:text-md font-semibold my-2">Arbitration</h3>
+        </a>
+    </div>
+    <div class="mt-8">
+        <a href="{{url_for('services') }}" class="inline-flex items-center text-md font-semibold cust-green hover:cust-green-dark transition-colors duration-300 uppercase">
+            View More <span class="ml-2">&#8594;</span>
+        </a>
+    </div>
+</section>
+
+
+<!-- Why Choose Us Section -->
+<section class="py-16 padMain">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-stretch gap-8">
+      <!-- Left Content -->
+      <div class="h-full">
+        <span class="cust-badge">Why choose us</span>
+        <h2 class="text-xl md:text-3xl font-bold mt-2 mb-6 cust-text-dark">Our Core Values</h2>
+        <div class="space-y-6">
+            <!-- Feature 1: Excellence -->
+            <div class="flex items-start gap-4">
+                <div class="text-blue-500 text-3xl">&#127942;</div> <!-- Trophy icon for Excellence -->
+                <div>
+                    <h3 class="text-md md:text-lg font-semibold cust-text-dark">Excellence</h3>
+                    <p class="cust-text text-sm md:text-md">Commitment to delivering top-tier services with the highest quality standards.</p>
+                </div>
+            </div>
+            <!-- Feature 2: Reliability -->
+            <div class="flex items-start gap-4">
+                <div class="text-blue-500 text-3xl">&#128274;</div> <!-- Lock icon for Reliability -->
+                <div>
+                    <h3 class="text-md md:text-lg font-semibold cust-text-dark">Reliability</h3>
+                    <p class="cust-text text-sm md:text-md">Trusted partner with a strong foundation in engineering and practical solutions.</p>
+                </div>
+            </div>
+            <!-- Feature 3: Expertise -->
+            <div class="flex items-start gap-4">
+                <div class="text-blue-500 text-3xl">&#127891;</div> <!-- Graduation cap for Expertise -->
+                <div>
+                    <h3 class="text-md md:text-lg font-semibold cust-text-dark">Expertise</h3>
+                    <p class="cust-text text-sm md:text-md">Highly qualified team of professionals with extensive industry experience.</p>
+                </div>
+            </div>
+        </div>        
+      </div>
+
+      <!-- Right Image -->
+      <div class="relative h-full">
+        <img 
+          src="{{ url_for('static', filename='images/slide2.jpg') }}" 
+          alt="Woman working on a phone" 
+          class="rounded-lg shadow-lg h-full object-cover"
+          loading="lazy"
+        >
+        <div class="absolute top-0 right-0 w-24 h-24 cust-bg-dark rounded-full -z-10 transform translate-x-12 translate-y-12"></div>
+      </div>
+    </div>
+</section>
+
+  <section class="py-16 padMain cust-bg">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 items-center gap-8">
+        <!-- Left Content -->
+        <div class="col-span-1">
+          <h1 class="text-xl md:text-3xl font-bold mb-4 cust-text-dark">Training <span class="cust-green">Hub</span></h1>
+          <p class="cust-text mb-6 ml-2 text-sm md:text-md text-justify">
+            FEWS LTD offers both online and physical training programs, equipping trainees with hands-on, real-life practical skills tailored to excel in their careers. Our comprehensive approach bridges the gap between theoretical knowledge from Universities and industry demands.
+          </p>
+          <div class="mt-1">
+            <a href="{{url_for('training_catalog') }}" class="inline-flex items-center text-md font-semibold cust-green hover:cust-green-dark transition-colors duration-300 uppercase">
+                View All Programs <span class="ml-2">&#8594;</span>
+            </a>
+        </div>
+        </div>
+      
+        <div class="col-span-1 lg:col-span-2 relative">
+            <div class="flex flex-wrap gap-4 transition-transform duration-500 justify-center lg:justify-end">
+                
+            {% for training in trainings %}
+            <div class="w-80 bg-white rounded-lg shadow-lg p-6">
+              <h3 class="text-md md:text-lg font-semibold mb-2 cust-text-dark">{{ training.title|truncate(55) }}</h3>
+              <p class="cust-text mb-4 text-sm md:text-md">
+                <strong>Mode:</strong> {{ training.type }}<br>
+                <strong>CPDs:</strong> {{ training.number_of_cpds }}<br>
+                <strong>Duration:</strong> {{ training.duration }}
+              </p>
+              <a class="text-blue-500 cursor-pointer text-sm md:text-md" href="{{ url_for('detailed_training', training_id=training.id) }}">View Details</a>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+      
+</section>
+
+<!-- Blogs Section -->
+<section class="w-full index-about padMain pb-16">
+    <div class="w-full max-w-6xl mx-auto py-16 text-center">
+        <span class="cust-badge">Blogs</span>
+        <h2 class="text-2xl font-semibold font-500 mt-3 mb-1 cust-text-dark">Latest News</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+        {% for new in news %}
+        <a href="{{ url_for('blog', blog_id=new.id) }}">
+            <div class="justify-self-center overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                <img src="{{ new.image_url }}" alt="Image 3" class="w-full h-[15rem] object-cover rounded-lg" loading="lazy">
+                <div class="py-4">
+                    <p class="text-gray-500 text-sm flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M6 2a2 2 0 00-2 2v1H3a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H6zm0 2h8v1H6V4zm11 3v9H3V7h14z" />
+                        </svg>
+                        {{ new.created_at | parse_date_year}}
+                    </p>
+                    <h2 class="mt-2 text-md md:text-lg font-bold cust-text-dark">{{ new.title |truncate(75) }}</h2>
+                    <p class="cust-text text-md mt-2">{{ new.desc |truncate(130) }}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class="text-center mt-6">
+        <a href="{{ url_for('company_news') }}" class="cust-bg-green text-white px-6 py-2 rounded-lg shadow hover:cust-bg-green-dark transition-colors duration-300">
+            Show all posts
+        </a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const splide = new Splide('#image-slider', {
+            type: 'fade',
+            autoplay: true,
+            perPage: 1,
+            pauseOnHover: true,
+            speed: 800,
+            rewind: true,
+        });
+
+        // Trigger animation on slide change
+        splide.on('mounted move', function () {
+            document.querySelectorAll('.animate-text').forEach((element) => {
+                element.style.animation = 'none'; // Reset animation
+                setTimeout(() => {
+                    element.style.animation = 'fadeInUp 1s ease-out forwards';
+                }, 100); // Delay ensures animation restart
+            });
+        });
+
+        splide.mount();
+    });
+</script>
+
+{% endblock %}

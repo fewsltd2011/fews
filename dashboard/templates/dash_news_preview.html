@@ -1,0 +1,82 @@
+{% extends 'dash_layout.html' %}
+
+{% block title %}News{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dash/css/tailwind.css') }}" />
+{% endblock %}
+
+{% block content %}
+<main class="h-full bg-gradient-to-r from-purple-600 to-indigo-800 overflow-y-auto">
+  <div class="container mx-auto px-6 py-12 mt-8">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="mb-8">
+                <ul class="space-y-4">
+                    {% for category, message in messages %}
+                        <li class="text-sm p-4 rounded-lg
+                            {% if category == 'news_creation_error' %}
+                                bg-red-500 text-white shadow-md
+                            {% elif category == 'news_creation_success' %}
+                                bg-green-500 text-white shadow-md
+                            {% else %}
+                                bg-gray-600 text-white shadow-md
+                            {% endif %}
+                        ">
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class=" overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl duration-300">
+        <div class="px-6 py-4 bg-purple-600 text-white rounded-lg shadow-md mb-8">
+            <h2 class="text-4xl font-extrabold tracking-wide text-center">News Preview</h2>
+        </div>
+
+        <div class="px-6 py-8 space-y-8">
+
+            {% if news.image_url %}
+            <div class="mb-8">
+                <div class="flex justify-center">
+                    <img src="{{ news.image_url }}" alt="News Image" class="rounded-lg shadow-lg object-cover w-full" style="height: 450px !important;">
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Title -->
+            <div class="mb-8">
+                <h3 class="text-3xl font-semibold text-gray-900">Title</h3>
+                <p class="text-md text-gray-600">{{ news.title }}</p>
+            </div>
+
+            <hr class="my-8 border-gray-200 border-opacity-50">
+
+            <!-- Description -->
+            <div class="mb-8">
+                <h3 class="text-3xl font-semibold text-gray-900">Description</h3>
+                <p class="text-md text-gray-600">{{ news.desc }}</p>
+            </div>
+
+            <hr class="my-8 border-gray-200 border-opacity-50">
+
+            <!-- Content -->
+            <div class="mb-8">
+                <h3 class="text-3xl font-semibold text-gray-900">Content</h3>
+                <div class="prose max-w-none text-gray-700 dark:text-gray-400">{{ news.content |style_with_tailwind|safe }}</div>
+            </div>
+
+            <hr class="my-8 border-gray-200 border-opacity-50">
+
+            <!-- Type -->
+            <div class="mb-8">
+                <h3 class="text-3xl font-semibold text-gray-900">Type</h3>
+                <p class="text-md text-gray-600">{{ news.type }}</p>
+            </div>
+
+        </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

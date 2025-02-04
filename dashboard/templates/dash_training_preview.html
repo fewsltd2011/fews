@@ -1,0 +1,143 @@
+{% extends 'dash_layout.html' %}
+
+{% block title %}Training{% endblock %}
+{% block links %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dash/css/tailwind.css') }}" />
+{% endblock %}
+
+{% block content %}
+<main class="h-full bg-gradient-to-r from-indigo-900 to-purple-800 h-full overflow-y-auto">
+  <div class="container px-6 mx-auto py-16 mt-8 ">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="mb-6 space-y-4">
+                {% for category, message in messages %}
+                    <li class="text-sm p-4 rounded-xl
+                        {% if category == 'training_creation_error' %}
+                            bg-red-700 text-white shadow-md transform hover:scale-105 transition-all
+                        {% elif category == 'training_creation_success' %}
+                            bg-green-600 text-white shadow-md transform hover:scale-105 transition-all
+                        {% else %}
+                            bg-gray-600 text-white shadow-md transform hover:scale-105 transition-all
+                        {% endif %}
+                    ">
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <div class="p-10 rounded-2xl shadow-lg space-y-8">
+        <div class="">
+
+            <!-- Header Section -->
+            <div class="px-6 py-4 bg-purple-600 text-white rounded-lg shadow-md mb-8">
+                <h2 class="text-3xl font-semibold">Training Preview</h2>
+            </div>
+
+            <!-- Training Details Section -->
+            <div class="space-y-12">
+
+                <!-- Title -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Title</h3>
+                    <p class="text-md text-gray-600">{{ training.title }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Description -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Description</h3>
+                    <p class="text-md text-gray-600">{{ training.desc }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Number Of CPDs -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Number of CPDs</h3>
+                    <p class="text-md text-gray-600">{{ training.number_of_cpds }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Content -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Content</h3>
+                    <div class="prose max-w-none">{{ training.content |style_with_tailwind|safe }}</div>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Type -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Type</h3>
+                    <p class="text-md text-gray-600">{{ training.type }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Duration -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Duration</h3>
+                    <p class="text-md text-gray-600">{{ training.duration }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Daily Schedule -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Daily Schedule</h3>
+                    <p class="text-md text-gray-600">{{ training.daily_schedule }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Training Style -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Training Style</h3>
+                    <p class="text-md text-gray-600">{{ training.training_style }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Online Knowledge Test -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Online Knowledge Test</h3>
+                    <p class="text-md text-gray-600">{{ training.online_knowledge_test }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Certification -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Certification</h3>
+                    <p class="text-md text-gray-600">{{ training.certification }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Instructor -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Instructor</h3>
+                    <p class="text-md text-gray-600">{{ training.instructor }}</p>
+                </div>
+
+                <hr class="my-6 border-gray-300">
+
+                <!-- Fees -->
+                <div class="mb-6">
+                    <h3 class="text-3xl font-semibold text-gray-900">Fees</h3>
+                    <p class="text-md text-gray-600">{{ training.fees }}</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

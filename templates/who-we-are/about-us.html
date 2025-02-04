@@ -1,0 +1,95 @@
+<!-- templates/index.html -->
+{% extends 'layout.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="w-full pb-16 bg-white mt-[80px] md:mt-0">
+    <div class="about-header padMain relative text-center bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/slide3.jpg') }}');">
+        <div class="absolute inset-0 bg-black opacity-90"></div> <!-- Overlay -->
+        <div class="relative z-10 text-white px-2 sm:px-4 py-16">
+            <h1 class="text-3xl font-bold uppercase">About FEWS LTD</h1>
+            <p class="about-intro text-sm sm:text-md mx-auto max-w-xl mt-2 text-justify">
+                We specialize in providing innovative and sustainable infrastructure solutions that meet the evolving needs of society. Our commitment to excellence drives us to deliver exceptional results in every project we undertake.
+            </p>
+        </div>
+    </div>
+
+    <div class="about-content padMain grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+
+        <!-- Left Section (Text Content) -->
+        <div class="about-text space-y-4">
+            <!-- Vision Section -->
+            <div class="about-vision about-fade-in space-y-2">
+                <h2 class="text-md md:text-xl cust-text-dark font-semibold">Vision</h2>
+                <p class="text-sm cust-text text-justify">
+                    To be a leading provider of innovative and sustainable infrastructure solutions for the next generation.
+                </p>
+            </div>
+
+            <!-- Mission Section -->
+            <div class="about-mission about-fade-in space-y-2">
+                <h2 class="text-md md:text-xl cust-text-dark font-semibold">Mission</h2>
+                <p class="text-sm cust-text text-justify">
+                    At FEWS LTD, we are committed to delivering excellence in engineering, construction, and project management, ensuring the development of resilient infrastructure that meets the evolving needs of society.
+                </p>
+            </div>
+
+            <!-- Quality Policy Section -->
+            <div class="about-policy about-fade-in space-y-2">
+                <h2 class="text-md md:text-xl cust-text-dark font-semibold">Quality Policy</h2>
+                <p class="text-sm cust-text text-justify">
+                    FEWS LTD is committed to consistently providing innovative, sustainable, and high-quality solutions across infrastructure design, supervision, road safety, and arbitration services.
+                </p>
+                <p class="text-sm cust-text text-justify">
+                    We ensure that all projects are executed with professionalism, adherence to industry standards, and customer satisfaction as our top priority.
+                </p>
+                <p class="text-sm cust-text text-justify">
+                    Through continuous improvement, employee training, and a focus on environmental and social responsibility, we aim to exceed client expectations and contribute to the development of safe and efficient infrastructure.
+                </p>
+            </div>
+
+            <!-- Quality Statement -->
+            <div class="about-policy about-fade-in space-y-2">
+                <h2 class="text-md md:text-xl cust-text-dark font-semibold">Quality Statement</h2>
+                <p class="text-sm cust-text text-justify">
+                    At FEWS LTD, we strive for excellence in every aspect of our operations. Our commitment to delivering top-tier services in infrastructure design, supervision, road safety, and arbitration reflects our dedication to ensuring the highest quality standards.
+                </p>
+                <p class="text-sm cust-text text-justify">
+                    We work closely with clients, stakeholders, and regulatory bodies to ensure compliance with all relevant standards and best practices.
+                </p>
+                <p class="text-sm cust-text text-justify">
+                    Our team is dedicated to delivering projects on time, within budget, within the quality requirements, and with the highest level of safety and integrity.
+                </p>
+            </div>
+        </div>
+
+        <div class="">
+            <!-- Right Section (Image) -->
+            <div class="about-image-container about-slide-up flex justify-center items-center bg-cover h-[400px]" style="background-image: url('{{ url_for('static', filename='images/slide3.jpg') }}');">
+                
+            </div>
+            <!-- Why Choose Us Section -->
+            <div class="about-why-choose about-fade-in space-y-2 mt-6">
+                <h2 class="text-xl cust-text-dark font-semibold">Why Choose FEWS LTD?</h2>
+                <p class="text-sm cust-text text-justify">
+                    With a strong foundation in engineering and a focus on practical, real-world solutions, FEWS LTD is your trusted partner in advancing green agriculture. From tailored designs to cutting-edge technologies, we are dedicated to driving sustainable agricultural practices that benefit communities and the environment alike.
+                </p>
+            </div>
+
+             <!-- Contact Section -->
+            <div class="about-contact text-center mt-[2.5rem]">
+                <p class="about-contact-text text-sm sm:text-md text-gray-700 text-justify">
+                    Let us help you grow smarter and greener! For inquiries and project collaborations, <a href="mailto:info@fewsltd.com" class="about-contact-link text-blue-600 font-semibold">contact us today</a>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+   
+</section>
+
+{% endblock %}

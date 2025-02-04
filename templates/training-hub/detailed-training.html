@@ -1,0 +1,109 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {% if training %}
+        {{ training.title }}
+    {% else %}
+        Not found
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="w-full min-h-[85vh] pt-40 pb-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+        {% if training %}
+        <div class="lg:col-span-2 px-8">
+            <div class="mt-6 flex items-center space-x-4">
+                {% if training.type %}
+                <span class="px-3 py-1 gradient-bg text-white text-center text-sm rounded-full">{{ training.type }}</span>
+                {% endif %}
+                {% if training.created_at %}
+                <p class="text-gray-500 text-sm">Published On: {{ training.created_at | parse_date_year }}</p>
+                {% endif %}
+            </div>
+
+            {% if training.title %}
+            <h1 class="mt-4 text-3xl font-bold text-gray-900">{{ training.title }}</h1>
+            {% endif %}
+            {% if training.number_of_cpds %}
+            <p class="mt-4 text-gray-900 text-md"><span class="font-bold mr-2">Number of CPDs:</span>{{ training.number_of_cpds }}</p>
+            {% endif %}
+            {% if training.instructor %}
+            <p class="mt-1 text-gray-900 text-md"><span class="font-bold mr-2">Instructor:</span>{{ training.instructor }}</p>
+            {% endif %}
+            {% if training.desc %}
+            <p class="mt-4 text-gray-700">{{ training.desc }}</p>
+            {% endif %}
+            
+            {% if training.content %}
+            <div class="mt-8">
+                {{ training.content |style_with_tailwind|safe }}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Right Section: Purchase Options -->
+        <div class="gradient-bg p-8 rounded-xl shadow-lg w-lg mx-auto">
+            <h2 class="text-2xl font-semibold text-gray-300 mb-6 text-center">Training Format</h2>
+        
+            <div class="text-white space-y-6">
+                {% if training.duration %}
+                <div class="flex text-sm">
+                    <span class="font-semibold text-gray-300 mr-2">Duration:</span>
+                    <span class="text-gray-400">{{ training.duration }}</span>
+                </div>
+                <hr class="border-t border-gray-600">
+                {% endif %}
+                
+                {% if training.daily_schedule %}
+                <div class="flex text-sm">
+                    <span class="font-semibold text-gray-300 mr-2">Daily Schedule:</span>
+                    <span class="text-gray-400">{{ training.daily_schedule }}</span>
+                </div>
+                <hr class="border-t border-gray-600">
+                {% endif %}
+                
+                {% if training.training_style %}
+                <div class="flex text-sm">
+                    <span class="font-semibold text-gray-300 mr-2">Training Style:</span>
+                    <span class="text-gray-400">{{ training.training_style }}</span>
+                </div>
+                <hr class="border-t border-gray-600">
+                {% endif %}
+                
+                {% if training.online_knowledge_test %}
+                <div class="flex text-sm">
+                    <span class="font-semibold text-gray-300 mr-2">Online Knowledge Test:</span>
+                    <span class="text-gray-400">{{ training.online_knowledge_test }}</span>
+                </div>
+                <hr class="border-t border-gray-600">
+                {% endif %}
+                
+                {% if training.certification %}
+                <div class="flex text-sm">
+                    <span class="font-semibold text-gray-300 mr-2">Certification:</span>
+                    <span class="text-gray-400">{{ training.certification }}</span>
+                </div>
+                <hr class="border-t border-gray-600">
+                {% endif %}
+                
+                {% if training.fees %}
+                <div class="flex text-sm">
+                    <span class="font-semibold text-gray-300 mr-2">Fees:</span>
+                    <span class="text-gray-400">{{ training.fees }}</span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <!-- Fallback for no training available -->
+        <div class="lg:col-span-3 text-center py-20">
+            <h2 class="text-2xl font-bold text-gray-800">Training Details Not Available</h2>
+            <p class="text-gray-600 mt-4">The training details you're looking for are currently unavailable. Please check back later or contact support for assistance.</p>
+            <a href="/" class="mt-6 inline-block px-6 py-3 bg-blue-500 text-white rounded-md">Go Back to Home</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

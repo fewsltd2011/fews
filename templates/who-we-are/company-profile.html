@@ -1,0 +1,94 @@
+<!-- templates/company_profile.html -->
+{% extends 'layout.html' %}
+
+{% block title %}Company Profile{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="w-full pb-16 bg-white mt-[80px] md:mt-0">
+    <div class="about-header padMain relative text-center bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/slide3.jpg') }}');">
+        <div class="absolute inset-0 bg-black opacity-90"></div> <!-- Overlay -->
+        <div class="relative z-10 text-white px-2 sm:px-4 py-16">
+            <h1 class="text-3xl font-bold uppercase">Company Profile</h1>
+            <p class="about-intro text-sm sm:text-md mx-auto max-w-xl mt-2 text-justify">
+                Welcome to Faith Engineering Works and Services LTD (FEWS LTD), your trusted partner for innovative infrastructure solutions.
+            </p>
+            <p class="about-intro text-sm sm:text-md mx-auto max-w-xl mt-2 text-justify">
+                We specialize in a wide range of services, including building infrastructure, transport infrastructure, water infrastructure, environment and social safeguards, surveys, infra solutions, and Energy projects. 
+            </p>
+            <p class="about-intro text-sm sm:text-md mx-auto max-w-xl mt-2 text-justify">
+                With a commitment to excellence and sustainability, we strive to deliver projects that meet the needs of communities and drive progress.
+            </p>
+        </div>
+    </div>
+
+    <div class="company-content grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 padMain">
+
+        <!-- Left Section (Text Content) -->
+        <div class="company-text space-y-8">
+            <!-- Company Overview Section -->
+            <div class="company-overview space-y-2">
+                <h2 class="text-lg md:text-xl cust-text-dark font-semibold">What We Do</h2>
+                <p class="text-sm cust-text">
+                    At FEWS LTD, we specialize in a diverse range of infrastructure services, offering end-to-end solutions from feasibility studies to detailed design, supervision, and project management. Our expertise spans multiple sectors, including:
+                </p>
+            </div>
+
+            <!-- Services Section -->
+            <div class="company-services space-y-4">
+                <h3 class="text-lg md:text-xl cust-text-dark font-semibold">Our Services</h3>
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Environment & Social Safeguards
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Energy
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Green Agriculture
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Building Industry
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Transportation Industry
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Water and Sanitation
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Specialized Surveys, Evaluation, and Impact Assessment
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Road Safety
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Arbitration
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-2.5 h-2.5 bg-green-500 rounded-full mr-3"></span> Capacity Building through Global Training Hub
+                    </li>
+                </ul>
+                
+            </div>
+
+        </div>
+
+        <!-- Right Section (Image) -->
+        <div class="company-image-container about-slide-up flex justify-center items-center bg-cover h-[400px]" style="background-image: url('{{ url_for('static', filename='images/slide3.jpg') }}');">
+            
+        </div>
+
+    </div>
+
+    <!-- Contact Section -->
+    <div class="company-contact text-center mt-16">
+        <p class="company-contact-text text-sm sm:text-md text-gray-700">
+            Explore our website to learn more about our services and how we can assist you in your next infrastructure endeavor.
+        </p>
+    </div>
+    
+</section>
+
+{% endblock %}

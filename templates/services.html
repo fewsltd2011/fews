@@ -1,0 +1,778 @@
+{% extends 'layout.html' %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+
+<!-- Services Section -->
+<section class="w-full min-h-[85vh] pt-40 pb-16 bg-white padMain">
+    <div class="mx-auto flex flex-col align-center items-start lg:flex-row">
+
+        <!-- Sidebar Navigation -->
+        <aside class="w-full lg:w-1/4">
+            <ul id="sidebar" class="space-y-1">
+                <li><a href="#" data-content="Building" class="block py-4 px-8 cust-bg-green text-white text-sm font-medium sidebarItems">Building Infrastructure</a></li>
+                <li><a href="#" data-content="Transportation" class="block py-4 px-8 bg-gray-200 text-gray-800 text-sm font-medium sidebarItems">Transportation Infrastructure</a></li>
+                <li><a href="#" data-content="water" class="block py-4 px-8 bg-gray-200 text-gray-800 text-sm font-medium sidebarItems">Water and Sanitation Infrastructure</a></li>
+                <li><a href="#" data-content="Environment" class="block py-4 px-8 bg-gray-200 text-gray-800 text-sm font-medium sidebarItems">Environment & Social Safeguards</a></li>
+                <li><a href="#" data-content="Energy" class="block py-4 px-8 bg-gray-200 text-gray-800 text-sm font-medium sidebarItems">Energy</a></li>
+                <li><a href="#" data-content="Green" class="block py-4 px-8 bg-gray-200 text-gray-800 text-sm font-medium sidebarItems">Green Agriculture</a></li>
+                <li><a href="#" data-content="Differentiator" class="block py-4 px-8 bg-gray-200 text-gray-800 text-sm font-medium sidebarItems">Differentiator Services</a></li>
+                <li><a href="services?q=road-safety" data-content="Road" class="block py-4 px-8 bg-gray-200 text-gray-800 text-sm font-medium sidebarItems">Road Safety</a></li>
+                <li><a href="services?q=arbitration" data-content="Arbitration" class="block py-4 px-8 bg-gray-200 text-gray-800 text-sm font-medium sidebarItems">Arbitration</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Section -->
+        <div id="main-content" class="w-full lg:w-3/4 mt-8 lg:mt-0 lg:ml-8">
+            <!-- Content Sections with Different Structures -->
+            <div data-section="Building" class="bg-white px-8">
+                <h2 class="text-2xl font-bold text-justify">Building Infrastructure</h2>
+                <p class="mt-2 text-justify">We provide comprehensive services for the design and execution of various building infrastructure projects, including:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2">
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Commercial Buildings: </span> Tailored spaces for diverse business needs.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Hotels & Healthcare Facilities:</span> Hotels, hospitals, clinics, and other healthcare facilities.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Educational Institutions:</span> Universities, schools, and learning centers.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Cultural & Event Spaces:</span> Theatres, conference halls, and large-span warehouses.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Public and Administrative Buildings:</span> Offices and government buildings.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Mixed-Use Complexes:</span> Offices, retail spaces, and residential units in a single development.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Residential Apartments:</span> Comfortable and modern living spaces.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Sports & Recreation Complexes:</span> Designing facilities for active lifestyles and community engagement.
+                        </p>
+                    </li>
+                </ul>
+            </div>            
+            <div data-section="Transportation" class="hidden bg-white px-8">
+                <h2 class="text-2xl font-bold">Transportation Infrastructure</h2>
+                <p class="mt-2 text-justify">We support transportation projects with our full-service approach, including:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2">
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold whitespace-nowrap">Feasibility Studies, Design & Supervision:</span> Roads, bridges, ports, airports, and e-mobility infrastructure projects.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold whitespace-nowrap">Master Planning:</span> Developing strategic plans to ensure the long-term success of transportation infrastructure.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold whitespace-nowrap">Policy & Strategy Development:</span> Assisting in the formulation of transportation policies and strategies to meet current and future needs.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div data-section="water" class="hidden bg-white px-8">
+                <h2 class="text-2xl font-bold">Water and Sanitation Infrastructure</h2>
+                <p class="mt-2 text-justify">Our expertise extends to water and sanitation projects, including:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2">
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Transmission & Distribution Lines:</span> Designing and overseeing water transmission and distribution networks.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Water Treatment:</span> Developing water treatment plants to ensure access to safe and clean water.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Wastewater Treatment Plants:</span> Creating systems for efficient wastewater treatment and environmental protection.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Marshland Development & Irrigation:</span> Designing irrigation systems and managing marshland development to enhance agricultural productivity.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div data-section="Environment" class="hidden bg-white px-8">
+                <h2 class="text-2xl font-bold">Environment & Social Safeguards</h2>
+                <p class="mt-2 text-justify">We integrate environmental and social responsibility into every project.</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2">
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">GHE Assessment & Reduction Strategies:</span> Developing and implementing strategies to reduce greenhouse gas emissions.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Environmental Social Impact Assessment (ESIA):</span> Conducting assessments to minimize negative environmental and social impacts.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Occupational Safety and Health:</span> Planning and implementing safety measures to ensure the health and safety of workers during project execution.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div data-section="Energy" class="hidden bg-white px-8">
+                <h2 class="text-2xl font-bold">Energy</h2>
+                <p class="mt-2 text-justify">We offer specialized services in energy infrastructure:</p>
+                <ul class="list-disc pl-5 space-y-2 mt-2">
+                    <li class="flex items-start">
+                        <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                        <p class="m-0 text-gray-600 text-justify">
+                            <span class="font-semibold">Power Generation & Transmission:</span> Providing design and supervision services for hydropower, geothermal, and solar energy projects to enhance sustainable energy solutions.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div data-section="Green" class="hidden bg-white px-8">
+                <h2 class="text-2xl font-bold">Green Agriculture</h2>
+                <p class="mt-2 text-justify">We are committed to transforming agricultural practices with innovative, sustainable, and technology-driven solutions. Our expertise in green agriculture focuses on optimizing productivity while preserving natural resources. We provide a range of cutting-edge services to meet the evolving needs of farmers, agribusinesses, and organizations.</p>
+                <div class="max-w-4xl mt-10">
+                    <h1 class="text-md font-bold text-green-700 text-center mb-6">Our Green Agriculture Services Include:</h1>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold">1. Onion & Chili Drying Infrastructure</h2>
+                        <p class="mt-2 text-gray-600 text-justify">Efficient post-harvest management is critical for reducing waste and ensuring quality. We specialize in the <span class="font-bold">design, installation, and maintenance of onion and chili drying infrastructure</span>, creating state-of-the-art Post-Harvest Management Centers that help preserve and enhance the value of your produce.</p>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold">2. Hydroponics Infrastructure for Green Buildings</h2>
+                        <p class="mt-2 text-gray-600 text-justify">Revolutionize urban agriculture with our <span class="font-bold">hydroponics solutions</span> designed for green buildings. We offer comprehensive services, including the <span class="font-bold">supply, installation, and training</span> on hydroponic systems.</p>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold">3. Polycarbonate Greenhouses</h2>
+                        <p class="mt-2 text-gray-600 text-justify">Our team provides end-to-end services for <span class="font-bold">polycarbonate greenhouses</span>, from custom design to installation and maintenance.</p>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold">4. Irrigation and Marshland Design & Development</h2>
+                        <p class="mt-2 text-gray-600 text-justify">We bring expertise in the <span class="font-bold">design and development of irrigation systems and marshland projects</span>, enabling efficient water management and sustainable land use.</p>
+                    </div>
+                    <div class="mb-8 border-t pt-8">
+                        <h2 class="text-md font-bold text-green-700">Why Choose FEWS LTD?</h2>
+                        <p class="mt-2 text-gray-600 text-justify">With a strong foundation in engineering and a focus on practical, real-world solutions, FEWS LTD is your trusted partner in advancing green agriculture.</p>
+                    </div>
+                </div>
+            </div>
+            <div data-section="Differentiator" class="hidden bg-white px-8 text-justify">
+                <h2 class="text-2xl font-bold">Differentiator Services</h2>
+                <p class="mt-2 text-justify">We offer a wide range of specialized survey services, evaluation, assessment that differentiate us from others in the industry. Our expertise spans the following survey types:</p>
+                <div class="space-y-2 mt-1">
+                    <div class="border-b border-gray-300">
+                        <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('d1')">
+                            <div class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                    Traffic and Transportation Surveys:
+                                </p>
+                            </div>
+                            <svg id="faq1-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="d1" class="hidden pl-5 text-gray-600">
+                            <p>We conduct in-depth surveys to assess traffic flow and transportation patterns, providing valuable data for planning and improving transportation infrastructure. Our specialized survey types include:</p>
+                            <ul class="list-disc px-2 space-y-2 ml-1 mt-2">
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Roadside Interview Surveys (RSI):</span>
+                                        Gathering data from drivers and passengers to understand travel behavior, route choices, and demographic characteristics.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Manual Classified Counts (MCC):</span>
+                                        Counting and classifying vehicles on the road manually to assess traffic volumes and patterns.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Journey Time Surveys (JTS):</span>
+                                        Measuring the time it takes for vehicles to travel along specific routes to assess traffic flow and congestion.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Bus Passenger Origin-Destination Surveys:</span>
+                                        Collecting data on the origin and destination points of bus passengers to optimize routes and schedules.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Bus Boarding and Alighting Counts:</span>
+                                        Counting the number of passengers boarding and alighting buses at various stops to analyze ridership patterns.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Public Transport Quality Surveys:</span>
+                                        Assessing the quality of public transport services, including passenger satisfaction, punctuality, and comfort.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Pedestrians Interview Survey:</span>
+                                        Interviewing pedestrians to gather insights on their travel behavior, safety concerns, and preferences.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Parking Survey:</span>
+                                        Analyzing parking availability, occupancy rates, and usage patterns to assess parking needs and infrastructure requirements.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Road Condition Survey:</span>
+                                        Inspecting and documenting the condition of roadways, identifying issues such as surface damage, potholes, or other deterioration.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Turning Movement Count (TMC):</span>
+                                        Counting the number of vehicles turning at intersections to assess traffic flow and inform traffic signal planning.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Household Interview Surveys:</span>
+                                        Collecting data from households to understand transportation choices, travel behavior, and mobility needs within the community.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Freight Attitudinal Surveys:</span>
+                                        Collecting data on freight operators' attitudes, behaviors, and logistical patterns to improve freight systems and policies.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Border Post Surveys:</span>
+                                        Assessing traffic volumes, border crossing times, and other operational factors at border posts for more efficient border management.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Airports Passenger Surveys:</span>
+                                        Understanding passenger experiences, preferences, and needs at airports to enhance service quality and operational efficiency.
+                                    </p>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <p class="m-0 text-gray-600">
+                                        <span class="font-semibold">Bus Routes Utilization Surveys:</span>
+                                        Evaluating the utilization of bus routes to optimize service coverage, frequency, and efficiency.
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-300">
+                        <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('d2')">
+                            <div class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Topographic & Cadastral Surveys" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                    Topographic & Cadastral Surveys
+                                </p>
+                            </div>
+                            <svg id="faq1-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="d2" class="hidden pl-5 text-gray-600">
+                            <p>Our expert team maps land features and property boundaries to support engineering projects, ensuring precision and accuracy in land assessment.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-300">
+                        <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('d3')">
+                            <div class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Geotechnical Surveys & Laboratory Testing" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                    Geotechnical Surveys & Laboratory Testing
+                                </p>
+                            </div>
+                            <svg id="faq2-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="d3" class="hidden pl-5 text-gray-600">
+                            <p>We assess soil and rock properties for engineering purposes, ensuring that foundation design and construction meet safety and environmental standards.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-300">
+                        <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('d4')">
+                            <div class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Household Condition Surveys" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                    Household Condition Surveys
+                                </p>
+                            </div>
+                            <svg id="faq3-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="d4" class="hidden pl-5 text-gray-600">
+                            <p>Using mobile applications, we conduct baseline and follow-up surveys to assess living conditions, helping in community development and policy-making.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-300">
+                        <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('d5')">
+                            <div class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Roads Inventory & Condition Surveys" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                    Roads Inventory & Condition Surveys
+                                </p>
+                            </div>
+                            <svg id="faq4-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="d5" class="hidden pl-5 text-gray-600">
+                            <p>With advanced equipment such as Roughmeter IV and FWD, we inspect and measure road conditions for RAMS and design purposes, contributing to efficient road management.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-300">
+                        <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('d6')">
+                            <div class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Traffic Impact Assessment" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                    Traffic Impact Assessment
+                                </p>
+                            </div>
+                            <svg id="faq5-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="d6" class="hidden pl-5 text-gray-600">
+                            <p>We evaluate the impact of transportation projects on traffic flow and safety, ensuring that projects align with traffic management goals and mitigate congestion.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-300">
+                        <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('d7')">
+                            <div class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Development Impact Evaluation (DIME)" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                    Development Impact Evaluation (DIME)
+                                </p>
+                            </div>
+                            <svg id="faq6-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="d7" class="hidden pl-5 text-gray-600">
+                            <p>Our team assesses the social, economic, and environmental impacts of development projects, providing comprehensive insights to guide sustainable development.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-8 pt-2 mt-2">
+                    <p class="mt-2 text-gray-600">By leveraging cutting-edge technologies, modern equipment, and highly experienced specialists, we ensure that our surveys are completed quickly and with reduced human error, delivering unparalleled quality and efficiency for large projects like city mobility improvements, transport master plans, and specific infrastructure projects such as individual roads and airports.</p>
+                </div>
+            </div>
+            <div data-section="Road" class="hidden bg-white px-8">
+                <h2 class="text-2xl font-bold">Road Safety</h2>
+                <p class="mt-2 text-gray-600 text-justify">At FEWS LTD, we are dedicated to helping authorities plan, design, construct, and maintain safer roads, ensuring the protection of all road users. Our comprehensive road safety services provide innovative solutions tailored to the unique needs of each project.</p>
+                <div class="max-w-4xl mt-10">
+                    <!-- Header -->
+                    <h1 class="text-md font-bold text-green-700 text-center mb-6">Our Road Safety Services Include:</h1>
+            
+                    <!-- Service Item 1 -->
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Development of National Road Safety Strategy & Action Plan</h2>
+                        <p class="mt-2 text-gray-600 text-justify">We work with authorities to create and implement a comprehensive national strategy to improve road safety, backed by actionable plans and clear objectives.</p>
+                    </div>
+            
+                    <!-- Service Item 2 -->
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Road Safety Audit</h2>
+                        <p class="mt-2 text-gray-600 text-justify">Our team conducts detailed road safety audits, evaluating the safety performance of road designs, operations, and existing infrastructure to identify potential hazards and recommend improvements.</p>
+                    </div>
+            
+                    <!-- Service Item 3 -->
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Road Safety Star Ratings Practices</h2>
+                        <p class="mt-2 text-gray-600 text-justify">We assess roads using star ratings systems, helping authorities.</p>
+                    </div>
+            
+                    <!-- Service Item 4 -->
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Safer Road Works</h2>
+                        <p class="mt-2 text-gray-600 text-justify">We provide expert guidance on implementing safer roadworks practices, ensuring minimal risk and disruption to road users during construction and maintenance phases.</p>
+                    </div>
+            
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Roadside Hazard Management</h2>
+                        <p class="mt-2 text-gray-600 text-justify">Our services include identifying and mitigating roadside hazards, creating safer environments for both vehicles and pedestrians.</p>
+                    </div>
+            
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Pedestrian Safety</h2>
+                        <p class="mt-2 text-gray-600 text-justify">We focus on improving pedestrian safety by assessing infrastructure, traffic flows, and pedestrian behaviors to implement effective solutions.</p>
+                    </div>
+            
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Road Safety Star Ratings: Enhancing Road Safety Standards</h2>
+                        <p class="mt-2 text-gray-600 text-justify">Using the star ratings system, we conduct in-depth road safety audits to assess and enhance the safety levels of roadways, identifying areas requiring urgent attention.</p>
+                    </div>
+            
+                    <div class="mb-8">
+                        <p class="mt-2 text-gray-600 text-justify">The <span class="bold">Star Ratings for Road Safety</span> is a globally recognized system used to assess the safety performance of road infrastructure. This system assigns a "star" rating based on the safety features of a road, with <span class="bold">five stars</span> representing the highest safety standards and <span class="bold">one star</span> indicating poor safety performance. The rating is based on various road safety factors such as road design, traffic flow, signage, speed limits, and pedestrian facilities.</p>
+                    </div>
+            
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">The Five-Star Rating System:</h2>
+                        <ul class="list-disc pl-5 space-y-2 mt-2">
+                            <li class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify">
+                                    <span class="font-semibold">Five-Star Rating:</span> Indicates excellent safety standards, with a well-designed road that minimizes risks for all road users. These roads typically have clear signage, adequate pedestrian facilities, well-marked lanes, and appropriate speed limits.
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify">
+                                    <span class="font-semibold">Four-Star Rating:</span> A high level of safety, though there may be minor issues such as slight risks in certain areas, including poorly designed intersections or minor pedestrian hazards.
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify">
+                                    <span class="font-semibold">Three-Star Rating:</span> Roads with a moderate level of safety. These roads may require improvements in specific areas like road surface conditions or pedestrian crossings.
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify">
+                                    <span class="font-semibold">Two-Star Rating:</span> Roads with serious safety concerns, such as hazardous intersections, insufficient pedestrian facilities, or high-speed areas that contribute to accidents.
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify">
+                                    <span class="font-semibold">One-Star Rating:</span> Indicates a road with significant safety issues, where urgent improvements are needed to reduce risks for all users, particularly in high-traffic zones or accident-prone areas.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Linking Star Ratings with SDGs</h2>
+                        <p class="mt-2 text-gray-600 text-justify">The <span class="bold">Star Ratings for Road Safety</span> are closely aligned with several <span class="bold">Sustainable Development Goals (SDGs),</span> especially those focused on safety, sustainability, and health:</p>
+                        <ul class="list-disc pl-5 space-y-2 mt-2">
+                            <li class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify">
+                                    <span class="font-semibold">SDG 3: Good Health and Well-Being: </span> By improving road safety through higher star ratings, we reduce traffic-related injuries and fatalities, promoting safer environments and better health outcomes for road users.
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify">
+                                    <span class="font-semibold">SDG 9: Industry, Innovation, and Infrastructure:</span> Roads that score higher in the Star Ratings system represent advanced infrastructure designs that contribute to more sustainable and resilient transportation networks.
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify">
+                                    <span class="font-semibold">SDG 11: Sustainable Cities and Communities:</span> Achieving higher star ratings directly contributes to creating safe, inclusive, and sustainable cities by addressing road safety in urban and rural areas.
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="{{ url_for('static', filename='svgs/tick.svg') }}" alt="Arbitration" loading="lazy" class="mt-[3px] mr-1">
+                                <p class="m-0 text-gray-600 text-justify">
+                                    <span class="font-semibold">SDG 12: Responsible Consumption and Production:</span> Road safety improvements lead to better use of resources in the transportation sector, as well as reducing accidents that result in the need for costly repairs, thus supporting more efficient and responsible infrastructure management.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Identifying, Investigating, and Treating Blackspots</h2>
+                        <p class="mt-2 text-gray-600 text-justify">Our experts work to identify and treat dangerous blackspots—areas with a high rate of accidents—by conducting thorough investigations and recommending appropriate safety measures.</p>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Why and How to Manage Speed</h2>
+                        <p class="mt-2 text-gray-600 text-justify">We offer advice on speed management techniques and strategies to reduce accidents and improve road safety, including speed limits, enforcement, and traffic calming methods.</p>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Roads and School’s Assessment Program with Engineering Solutions</h2>
+                        <p class="mt-2 text-gray-600 text-justify">We conduct assessments of roads near schools to ensure safe access for children, providing engineering solutions tailored to create safer routes and reduce risks.</p>
+                    </div>
+                </div>
+            </div>            
+            <div data-section="Arbitration" class="hidden bg-white px-8">
+                <h2 class="text-2xl font-bold space-y-2">Arbitration</h2>
+                <p class="mt-2 text-gray-600 text-justify">At FEWS LTD we specialize in resolving <span class="font-semibold">disputes in engineering projects</span> (Roads, Buildings, Water, Energy, Transport, Dams) through arbitration, providing efficient and effective solutions tailored to your needs.</p>
+                <p class="mt-2 text-gray-600 text-justify">Our teams are accredited members <span class="font-semibold">of the Chartered Institute of Arbitrators (CIArb)</span>.</p>
+                <div class="max-w-4xl mt-10">
+                    <!-- Header -->
+                    
+                    <!-- Service Item 1 -->
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Institutional and Ad-hoc Arbitration</h2>
+                        <p class="mt-2 text-gray-600 text-justify">FEWS LTD handle both institutional arbitration (administered by an institution like ICC or LCIA) and ad-hoc arbitration (where parties manage the process themselves), depending on your needs.</p>
+                    </div>
+                    
+                    <h2 class="text-md font-semibold italic">FEWS LTD full range of arbitration services:</h2>
+                    <!-- Service Item 2 -->
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Claimant Representation</h2>
+                        <p class="mt-2 text-gray-600 text-justify">FEWS LTD represent claimants in arbitration, guiding them through the process and ensuring that their claims are presented effectively.</p>
+                    </div>
+            
+                    <!-- Service Item 3 -->
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Respondent Representation</h2>
+                        <p class="mt-2 text-gray-600 text-justify">FEWS LTD represents respondents in arbitration, providing a defense that is structured and robust.</p>
+                    </div>
+            
+                    <!-- Service Item 4 -->
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Arbitration Panel</h2>
+                        <p class="mt-2 text-gray-600 text-justify">Our Experts provides highly qualified arbitration panels for engineering project disputes, ensuring impartiality and expertise in every case.</p>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Claim Manager in Engineering Projects</h2>
+                        <p class="mt-2 text-gray-600 text-justify">FEWS LTD offer comprehensive claim management services for engineering projects, helping clients navigate complex claims and disputes.</p>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Contract Drafting & Management</h2>
+                        <p class="mt-2 text-gray-600 text-justify">FEWS LTD assist with the drafting, negotiation, and management of Engineering contracts, ensuring clarity and minimizing risk in engineering projects.</p>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Expert Witness</h2>
+                        <p class="mt-2 text-gray-600 text-justify">Our experts provide testimony and insights in arbitration proceedings to help clarify technical aspects of engineering disputes.</p>
+                    </div>
+                    <div class="mb-8">
+                        <h2 class="text-md font-semibold italic">Works Insurance Contract Advisory Services</h2>
+                        <p class="mt-2 text-gray-600 text-justify">FEWS LTD offers advisory services on works insurance contracts to insurance companies & Contractors to ensure that all aspects of the project are covered and protected.</p>
+                    </div>
+            
+                    <!-- Why Choose Section -->
+                    <div class="mb-8 pt-8 space-y-2">
+                        <h2 class="text-md font-bold text-green-700">Key Notes</h2>
+                        <div class="space-y-2 mt-1">
+                            <div class="border-b border-gray-300">
+                                <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('a1')"> 
+                                    <div class="flex items-start">
+                                        <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                            How is arbitration different from litigation?
+                                        </p>
+                                    </div>
+                                    <svg id="faq1-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="a1" class="hidden text-gray-600"> 
+                                    <p>Arbitration proceedings are conducted in private, rather than in court, and are heard by an arbitrator rather than a judge. Arbitration procedures are generally less formal, and there are no restrictions on who may represent parties in an arbitration.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-b border-gray-300">
+                                <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('a2')"> 
+                                    <div class="flex items-start">
+                                        <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                            What are the advantages of resolving disputes by arbitration?
+                                        </p>
+                                    </div>
+                                    <svg id="faq2-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="a2" class="hidden text-gray-600"> 
+                                    <p>Arbitration is a less formal procedure than court litigation, and it is conducted in private, away from the glare of the media and the public. Parties are free to appoint their own arbitrators and can choose more practical procedures and rules for the conduct of an arbitration. Arbitration awards are final and binding, and have extra-territorial enforceability in over 140 countries under the New York Convention. Generally, arbitration can also be more cost-efficient and speedier than court litigation.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-b border-gray-300">
+                                <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('a3')"> 
+                                    <div class="flex items-start">
+                                        <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                            What is "institutional" arbitration?
+                                        </p>
+                                    </div>
+                                    <svg id="faq3-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="a3" class="hidden text-gray-600"> 
+                                    <p>Institutional arbitration proceedings are administered by an arbitration institution, such as the Kigali International Arbitration Centre (KIAC), Hong Kong International Arbitration Centre (HKIAC), the International Chamber of Commerce (ICC), the London Court of International Arbitration (LCIA). Typically, these are conducted under the arbitration rules of each institution.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="border-b border-gray-300">
+                                <button class="w-full text-left flex items-center justify-between py-2 text-lg font-semibold text-gray-800" onclick="toggleDescription('a4')"> 
+                                    <div class="flex items-start">
+                                        <p class="m-0 text-gray-600 text-justify text-sm: md:text-mds font-bold">
+                                            What is "ad hoc" arbitration?
+                                        </p>
+                                    </div>
+                                    <svg id="faq4-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </button>
+                                <div id="a4" class="hidden text-gray-600"> 
+                                    <p>Ad hoc arbitrations are arranged solely between the arbitrator(s) and the parties. They may adopt a readymade set of arbitration rules (such as the UNCITRAL Rules of Arbitration) or, less frequently, may be conducted under rules drawn up by the parties.</p>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>        
+    </div>
+</section>
+
+<!-- JavaScript for Dynamic Content Switching with Active State -->
+<script>
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the 'q' parameter from the URL
+        const queryParam = getQueryParam("q");
+
+        // Map the query parameter to the data-content attribute value
+        const sectionMapping = {
+            "water-and-sanitation-infrastructure": "water",
+            "building-infrastructure": "Building",
+            "transportation-infrastructure": "Transportation",
+            "environment-social-safeguards": "Environment",
+            "energy": "Energy",
+            "green-agriculture": "Green",
+            "differentiator-services": "Differentiator",
+            "road-safety": "Road",
+            "arbitration": "Arbitration"
+        };
+
+        const activeSection = sectionMapping[queryParam];
+
+        if (activeSection) {
+            // Activate the corresponding sidebar link and section
+            document.querySelectorAll("#sidebar a").forEach(link => {
+                if (link.dataset.content === activeSection) {
+                    link.classList.add('cust-bg-green', 'text-white');
+                    link.classList.remove('bg-gray-200', 'text-gray-800');
+                } else {
+                    link.classList.remove('cust-bg-green', 'text-white');
+                    link.classList.add('bg-gray-200', 'text-gray-800');
+                }
+            });
+
+            // Hide all sections and show the active one
+            document.querySelectorAll('[data-section]').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            const targetSection = document.querySelector(`[data-section="${activeSection}"]`);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+        }
+    });
+
+    // Sidebar click event for manual switching
+    document.getElementById("sidebar").addEventListener("click", function (e) {
+        e.preventDefault();
+        const contentKey = e.target.dataset.content;
+
+        if (contentKey) {
+            // Remove active class from all sidebar links
+            document.querySelectorAll("#sidebar a").forEach(link => {
+                link.classList.remove('cust-bg-green', 'text-white');
+                link.classList.add('bg-gray-200', 'text-gray-800');
+            });
+
+            // Add active class to the clicked link
+            e.target.classList.remove('bg-gray-200', 'text-gray-800');
+            e.target.classList.add('cust-bg-green', 'text-white');
+
+            // Hide all content sections and show the selected one
+            document.querySelectorAll('[data-section]').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show the matching content
+            const targetElement = document.querySelector(`[data-section="${contentKey}"]`);
+            if (targetElement) {
+                targetElement.classList.remove('hidden');
+            }
+        }
+    });
+
+    function toggleDescription(faqId) {
+        const content = document.getElementById(faqId);
+        const icon = document.getElementById(faqId + '-icon');
+        
+        if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            icon.style.transform = "rotate(180deg)";
+        } else {
+            content.classList.add('hidden');
+            icon.style.transform = "rotate(0deg)";
+        }
+    }
+</script>
+
+{% endblock %}

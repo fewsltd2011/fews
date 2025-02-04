@@ -1,0 +1,156 @@
+<aside
+        class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
+        x-show="isSideMenuOpen"
+        x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0 transform -translate-x-20"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0 transform -translate-x-20"
+        @click.away="closeSideMenu"
+        @keydown.escape="closeSideMenu"
+      >
+        <div class="py-4 text-gray-500 dark:text-gray-400">
+          <a
+            class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+            href="#"
+          >
+            FEWS
+          </a>
+          <ul class="mt-6">
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ url_for('dashboard.dash_main') }}"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                <span class="ml-4">Dashboard</span>
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ url_for('dashboard.dash_users') }}"
+              >
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
+                <circle cx="12" cy="6" r="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="ml-4">Users</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ url_for('dashboard.dash_projects') }}"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                <!-- Base Folder -->
+                <path d="M3 6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"></path>
+                <!-- Optional Project Indicator -->
+                <path d="M9 13h6"></path>
+                <path d="M12 10v6"></path>
+              </svg>
+                <span class="ml-4">Projects</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ url_for('dashboard.dash_training_catalog') }}"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                <!-- Certificate/Diploma shape -->
+                <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+                <!-- Lines representing text -->
+                <line x1="8" y1="9" x2="16" y2="9"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+                <line x1="8" y1="15" x2="12" y2="15"></line>
+                <!-- Star/Achievement symbol -->
+                <path d="M18 2l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"></path>
+              </svg>
+                <span class="ml-4">Trainings Catalog</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                href="{{ url_for('dashboard.dash_upcoming_training') }}"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                <!-- Certificate/Diploma shape -->
+                <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+                <!-- Lines representing text -->
+                <line x1="8" y1="9" x2="16" y2="9"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+                <line x1="8" y1="15" x2="12" y2="15"></line>
+                <!-- Star/Achievement symbol -->
+                <path d="M18 2l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"></path>
+              </svg>
+                <span class="ml-4">Upcoming training</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ url_for('dashboard.dash_news') }}"
+              >
+              <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+              ></path>
+            </svg>
+            <span class="ml-4">News</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ url_for('dashboard.dash_user_feedback') }}"
+              >
+              <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+            </svg>
+              <span class="ml-4">User Feedback</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>

@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block title %}Industry News{% endblock %}
+
+{% block content %}
+<section class="w-full pb-16 bg-white min-h-screen mt-[80px] md:mt-0">
+  <div class="about-header padMain relative text-center bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/slide3.jpg') }}');">
+      <div class="absolute inset-0 bg-black opacity-90"></div> <!-- Overlay -->
+      <div class="relative z-10 text-white px-2 sm:px-4 py-16">
+          <h1 class="text-3xl font-bold uppercase">Insights from the Industry</h1>
+          <p class="about-intro text-sm sm:text-md mx-auto max-w-xl mt-2 text-center">
+            Discover the latest trends, news, and innovations shaping the future of our industry.
+          </p>
+      </div>
+  </div>
+    <div class="max-w-6xl mx-auto px-6">
+  
+      {% if news %}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          {% for new in news %}
+            <a href={{ url_for('blog', blog_id=new.id) }}>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="{{ new.image_url }}" alt="Landscape" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <p class="text-sm text-gray-500">{{ new.created_at | parse_date_year }}</p>
+                        <h3 class="text-lg font-semibold text-blue-600 mt-1">{{ new.title | truncate(70) }}</h3>
+                        <p class="text-gray-600 mt-2">{{ new.desc | truncate(100) }}</p>
+                    </div>
+                </div>
+            </a>
+          {% endfor %}
+        </div>
+        {% else %}
+          <div class="text-center py-10 w-full mt-12">
+              <p class="text-gray-500 text-lg text-center">No news available at the moment. Please check back later!</p>
+          </div>
+        {% endif %}
+    </div>
+  </section>
+{% endblock %}

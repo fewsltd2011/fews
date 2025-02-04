@@ -1,0 +1,183 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+    {% if training %}
+        {{ training.title }}
+    {% else %}
+        Not found
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="w-full min-h-[85vh] pt-16 pb-16 bg-gray-50">
+    <div class="rounded-lg p-8 w-full max-w-2xl mx-auto">
+        {% if training %}
+        {% if training.title %}
+            <p class="mt-1 text-gray-900 text-md"><span class="font-bold mr-2">Training:</span>{{ training.title }}</p>
+        {% endif %}
+        {% if training.instructor %}
+            <p class="mt-1 text-gray-900 text-md"><span class="font-bold mr-2">Instructor:</span>{{ training.instructor }}</p>
+        {% endif %}
+        <hr class="border-t border-gray-600 my-6">
+        <h1 class="text-sm font-semibold mb-6 mt-8">Your information</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="mb-6">
+                    {% for category, message in messages %}
+                        <li class="text-sm p-2 my-2 rounded 
+                            {% if category == 'req_creation_error' %}
+                                bg-red-600 text-white
+                            {% elif category == 'req_creation_success' %}
+                                bg-green-100 text-green-700
+                            {% else %}
+                                bg-gray-600 text-white
+                            {% endif %}
+                        ">
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('training_request', training_id=upcomingTraining.id) }}" class="space-y-6">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              placeholder="Enter your full name" 
+              class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+  
+          <!-- Gender -->
+          <div>
+            <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+            <select 
+              id="gender" 
+              name="gender" 
+              required 
+              class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            >
+              <option value="" disabled selected>Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+  
+          <!-- Organization -->
+          <div>
+            <label for="organization" class="block text-sm font-medium text-gray-700">Organization</label>
+            <input 
+              type="text" 
+              id="organization" 
+              name="organization" 
+              required 
+              placeholder="Enter your organization" 
+              class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+  
+          <!-- Organization Address -->
+          <div>
+            <label for="organization_address" class="block text-sm font-medium text-gray-700">Organization Address</label>
+            <textarea 
+              id="organization_address" 
+              name="organization_address" 
+              required 
+              placeholder="Enter your organization address" 
+              class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              rows="3"
+            ></textarea>
+          </div>
+  
+          <!-- Job Title -->
+          <div>
+            <label for="job_title" class="block text-sm font-medium text-gray-700">Job Title</label>
+            <input 
+              type="text" 
+              id="job_title" 
+              name="job_title" 
+              required 
+              placeholder="Enter your job title" 
+              class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+  
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              placeholder="Enter your email address" 
+              class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+  
+          <!-- Street Address -->
+          <div>
+            <label for="street_address" class="block text-sm font-medium text-gray-700">Street Address</label>
+            <textarea 
+              id="street_address" 
+              name="street_address" 
+              required 
+              placeholder="Enter your street address" 
+              class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              rows="3"
+            ></textarea>
+          </div>
+  
+          <!-- City -->
+          <div>
+            <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+            <input 
+              type="text" 
+              id="city" 
+              name="city" 
+              required 
+              placeholder="Enter your city" 
+              class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+  
+          <!-- Telephone -->
+          <div>
+            <label for="telephone" class="block text-sm font-medium text-gray-700">Telephone</label>
+            <input 
+              type="text" 
+              id="telephone" 
+              name="telephone" 
+              required 
+              placeholder="Enter your telephone number" 
+              class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+  
+          <!-- Submit Button -->
+          <div>
+            <button 
+              type="submit" 
+              class="cust-bg-green text-white py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              Submit Request
+            </button>
+          </div>
+        </form>
+        {% else %}
+        <!-- Fallback for no training available -->
+        <div class="lg:col-span-3 text-center py-20">
+            <h2 class="text-2xl font-bold text-gray-800">Training Details Not Available</h2>
+            <p class="text-gray-600 mt-4">The training details you're looking for are currently unavailable. Please check back later or contact support for assistance.</p>
+            <a href="/" class="mt-6 inline-block px-6 py-3 bg-blue-500 text-white rounded-md">Go Back to Home</a>
+        </div>
+        {% endif %}
+      </div>
+</section>
+{% endblock %}

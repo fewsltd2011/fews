@@ -1,0 +1,230 @@
+{% extends 'dash_layout.html' %}
+
+{% block title %}Edit Training{% endblock %}
+{% block links %}
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<main class="h-full overflow-y-auto">
+  <div class="container px-6 mx-auto grid">
+    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+        Edit training
+    </h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="mb-6">
+                {% for category, message in messages %}
+                    <li class="text-sm p-2 my-2 rounded 
+                        {% if category == 'training_creation_error' %}
+                            bg-red-600 text-white
+                        {% elif category == 'training_creation_success' %}
+                            bg-green-100 text-green-700
+                        {% else %}
+                            bg-gray-600 text-white
+                        {% endif %}
+                    ">
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- New Table -->
+    <div class="w-full overflow-hidden">
+      <div class="w-full">
+        <form class="mb-6" method="POST" action="{{ url_for('dashboard.edit_training', training_id=training.id) }}">
+          <!-- Input fields -->
+          <div class="space-y-4">          
+            <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Title</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter title"
+                  name="title"
+                  value={{ training.title }}
+                  required
+                />
+              </label>
+              <!-- Description -->
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Description</span>
+                <textarea
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter description"
+                  name="desc"
+                  required
+                >{{ training.desc }}</textarea>
+              </label>
+
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Number Of CPDs</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Number Of CPDs"
+                  name="number_of_cpds"
+                  value={{ training.number_of_cpds }}
+                  required
+                />
+              </label>
+      
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Content</span>
+                <div id="editor" class="form-input h-64 border p-4">{{ training.content | safe }}</div>
+                <textarea
+                  class="hidden w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  name="content"
+                  id="content"
+                >{{ training.content }}</textarea>
+              </label>
+              <!-- Status -->
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">type</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter type"
+                  name="type"
+                  value={{ training.type }}
+                  required
+                />
+              </label>
+              <!-- duration -->
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">duration</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter duration"
+                  value={{ training.duration }}
+                  name="duration"
+                  required
+                />
+              </label>
+              <!-- daily_schedule -->
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Daily Schedule</span>
+                <input
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Daily Schedule"
+                  value={{ training.daily_schedule }}
+                  name="daily_schedule"
+                  required
+                />
+              </label>
+              
+              <!-- Training Style -->
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Training Style</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Training Style"
+                  value={{ training.training_style }}
+                  name="training_style"
+                  required
+                />
+              </label>
+              <!-- online Knowledge Test -->
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">online Knowledge Test</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter online Knowledge Test"
+                  value={{ training.online_knowledge_test }}
+                  name="online_knowledge_test"
+                  required
+                />
+              </label>
+              <!-- Certification -->
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Certification</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Certification"
+                  value={{ training.certification }}
+                  name="certification"
+                  required
+                />
+              </label>
+              <!-- Fees -->
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Instructor</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Instructor"
+                  value={{ training.instructor }}
+                  name="instructor"
+                />
+              </label>
+
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Fees</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Fees"
+                  value={{ training.fees }}
+                  name="fees"
+                />
+              </label>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <footer class="flex flex-col items-center justify-end px-6 py-3 -mx-6 mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800">
+            <button
+              type="submit"
+              class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+            >
+              Update training
+            </button>
+          </footer>
+        </form>
+        
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script>
+    var quill = new Quill('#editor', {
+      theme: 'snow',
+      modules: {
+          toolbar: [
+          ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+          ['blockquote', 'code-block'],
+          ['link'],
+        
+          [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+          [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+          [{ 'indent': '-1'}, { 'indent': '+1' }],                        // text direction
+        
+          [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        
+          [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+          [{ 'font': [] }],
+          [{ 'align': [] }],
+        
+          ['clean']  
+          ]
+      }
+  });
+  quill.on('text-change', function() {
+    var content = quill.root.innerHTML;
+    document.querySelector('textarea[name="content"]').value = content;
+  });
+</script>
+
+
+{% endblock %}

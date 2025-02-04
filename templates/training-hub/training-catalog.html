@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block title %}Training Catalog{% endblock %}
+
+{% block content %}
+<section class="w-full pb-16 bg-white mt-[80px] md:mt-0">
+    <div class="about-header padMain relative text-center bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/slide3.jpg') }}');">
+        <div class="absolute inset-0 bg-black opacity-90"></div> <!-- Overlay -->
+        <div class="relative z-10 text-white px-2 sm:px-4 py-16">
+            <h1 class="text-3xl font-bold uppercase">🚀 Training Catalog</h1>
+            <p class="about-intro text-sm sm:text-md mx-auto max-w-xl mt-2 text-justify">
+                We offer both online and physical training programs, equipping trainees with hands-on, real-life practical skills tailored to excel in their careers. Our comprehensive approach bridges the gap between theoretical knowledge from Universities and industry demands.
+            </p>
+        </div>
+    </div>
+
+    <div class="mx-auto mt-10 padMain">
+        <!-- Title Section -->
+        <h2 class="text-center text-2xl font-bold text-gray-800 mb-8">Available Training Programs</h2>
+    
+        <!-- Dynamic Course Cards -->
+        <div class="flex flex-wrap gap-6 justify-center items-stretch" id="course-list">
+
+            {% if trainings %}
+                {% for training in trainings %}
+                <a href="{{ url_for('detailed_training', training_id=training.id) }}" class="block w-full md:w-64 group">
+                    <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:shadow-lg hover:border-custom-blue transition duration-300 h-full">
+                        <!-- Icon with Animated Background -->
+                        <div class="flex items-center justify-center w-8 h-8 bg-custom-blue-light text-custom-blue-dark rounded-full group-hover:bg-custom-blue-dark group-hover:text-white transition duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                        <!-- Text with Enhanced Style -->
+                        <p class="text-gray-600 text-sm font-semibold group-hover:text-custom-blue-dark underline underline-offset-1 transition duration-300">
+                            {{ training.desc }}
+                        </p>
+                    </div>
+                </a>
+                {% endfor %}
+            {% else %}
+                <div class="text-center py-20">
+                    <h2 class="text-2xl font-bold text-gray-800">No Trainings Available</h2>
+                    <p class="text-gray-600 mt-4">There are currently no training courses available. Please check back later or contact support for more information.</p>
+                    <a href="/" class="mt-6 inline-block px-6 py-3 bg-blue-500 text-white rounded-md">Go Back to Home</a>
+                </div>
+            {% endif %}
+            
+        </div>        
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('search-input');
+        const items = document.querySelectorAll('#course-list > div');
+        const noResults = document.getElementById('no-results');
+
+        searchInput.addEventListener('input', function () {
+            const query = searchInput.value.trim().toLowerCase();
+            let hasVisibleItems = false;
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.classList.remove('hidden');
+                    hasVisibleItems = true;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            noResults.classList.toggle('hidden', hasVisibleItems);
+        });
+    });
+</script>
+{% endblock %}

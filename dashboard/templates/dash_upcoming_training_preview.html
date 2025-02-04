@@ -1,0 +1,106 @@
+{% extends 'dash_layout.html' %}
+
+{% block title %}Upcoming Training{% endblock %}
+
+{% block content %}
+<main class="h-full overflow-y-auto mt-6 mb-8 bg-gray-50 dark:bg-gray-900">
+  <div class="container px-6 mx-auto">
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="mb-6">
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="text-sm p-3 my-3 rounded 
+                            {% if category == 'upcoming_training_creation_error' %} bg-red-600 text-white 
+                            {% elif category == 'upcoming_training_creation_success' %} bg-green-100 text-green-700
+                            {% else %} bg-gray-600 text-white {% endif %}
+                        ">
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <div class="max-w-7xl mx-auto py-12 px-6 lg:px-8">
+
+        <!-- Header Section -->
+        <div class="px-6 py-4 bg-purple-600 text-white rounded-lg shadow-md">
+            <h2 class="text-3xl font-semibold">Upcoming Training Preview</h2>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg mt-8 p-4">
+            <!-- Training Details Section -->
+            <div class="px-6 py-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Title -->
+                    <div>
+                        <h3 class="text-3xl font-semibold text-gray-900">Training</h3>
+                        <p class="text-md text-gray-600">{{ upcoming_training.training.title }}</p>
+                    </div>
+
+                    <!-- Start Date -->
+                    <div>
+                        <h3 class="text-3xl font-semibold text-gray-900">Start Date</h3>
+                        <p class="text-md text-gray-600">{{ upcoming_training.start_date.strftime('%Y-%m-%d') }}</p>
+                    </div>
+
+                    <!-- Status -->
+                    <div>
+                        <h3 class="text-3xl font-semibold text-gray-900">Status</h3>
+                        <p class="text-md text-gray-600">{{ upcoming_training.status }}</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Requests Table Section -->
+            <div class="px-6 mt-8 py-6">
+                <h3 class="text-3xl font-semibold text-gray-900">Requests</h3>
+                <div class="overflow-x-auto mt-4 rounded-lg shadow-sm">
+                    <table class="w-full table-auto text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="bg-gray-50 dark:bg-gray-700 text-xs font-semibold uppercase text-gray-500 dark:text-gray-400">
+                            <tr>
+                                <th class="px-4 py-3">ID</th>
+                                <th class="px-4 py-3">Name</th>
+                                <th class="px-4 py-3">Gender</th>
+                                <th class="px-4 py-3">Organisation</th>
+                                <th class="px-4 py-3">Organisation Address</th>
+                                <th class="px-4 py-3">Job Title</th>
+                                <th class="px-4 py-3">Email</th>
+                                <th class="px-4 py-3">Street Address</th>
+                                <th class="px-4 py-3">City</th>
+                                <th class="px-4 py-3">Telephone</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white dark:bg-gray-800 divide-y dark:divide-gray-700">
+                            {% for request in upcoming_training.training_requests %}
+                            <tr class="text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3">{{ request.id }}</td>
+                                <td class="px-4 py-3">{{ request.name }}</td>
+                                <td class="px-4 py-3">{{ request.gender }}</td>
+                                <td class="px-4 py-3">{{ request.organization }}</td>
+                                <td class="px-4 py-3 truncate" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">{{ request.organization_address }}</td>
+                                <td class="px-4 py-3">{{ request.job_title }}</td>
+                                <td class="px-4 py-3">{{ request.email }}</td>
+                                <td class="px-4 py-3">{{ request.street_address }}</td>
+                                <td class="px-4 py-3">{{ request.city }}</td>
+                                <td class="px-4 py-3">{{ request.telephone }}</td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="10" class="px-4 py-3 text-center text-gray-500 dark:text-gray-300">No requests found.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}

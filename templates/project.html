@@ -1,0 +1,186 @@
+<!-- templates/index.html -->
+{% extends 'layout.html' %}
+
+{% block title %}
+    {% if project %}
+        {{ project.title }}
+    {% else %}
+        Not found
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="w-full pb-16 bg-white mt-[80px] md:mt-0 min-h-screen">
+    {% if project %}
+    <div class="padMain relative text-center bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/slide3.jpg') }}');">
+        <div class="absolute inset-0 bg-black opacity-90"></div> <!-- Overlay -->
+            <div class="relative z-10 text-white px-2 sm:px-4 py-16">
+                <h1 class="text-2xl font-bold uppercase">Project</h1>
+            </div>
+        </div>
+        <div class="w-full padMain mt-16 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-3">
+            <!-- Larger first element -->
+            <div>
+                <img src="{{ project.image_url }}" 
+                alt="Cable Car Pilot Project" 
+                class="w-full h-[500px] rounded-lg shadow-lg bg-cover bg-center">
+                <h1 class="text-3xl mt-6 font-bold mb-8 text-gray-800">{{ project.title }}</h1>
+                <p class="mt-6 text-justify">{{ project.desc }}</p>
+            </div>
+        
+            <!-- Second element with its own height -->
+            <div class="gradient-bg p-8 rounded-xl shadow-lg max-w-lg mx-auto overflow-auto h-auto text-gray-400 md:h-[470px] space-y-4">
+                <div class="flex items-start">
+                    <span class="mr-2">
+                        <svg fill="#00cc99" width="20px" height="20px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" stroke="#00cc99">
+
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <g id="SVGRepo_iconCarrier">
+                            
+                            <path d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z"/>
+                            
+                            </g>
+                            
+                            </svg>
+                    </span>
+                    <p class="text-justify">
+                        <span class="font-semibold cust-green whitespace-nowrap">Client: </span>{{ project.client }}
+                    </p>
+                </div>                
+                <div class="flex items-start">
+                    <span class="mr-2">
+                        <svg fill="#00cc99" width="20px" height="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve"  stroke="#00cc99">
+
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                        
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                        
+                        <g id="SVGRepo_iconCarrier"> <polygon fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" points="5,4 5,28 14,28 14,24 18,24 18,28 27,28 27,4 "/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="14" y1="20" x2="18" y2="20"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="14" y1="16" x2="18" y2="16"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="20" y1="24" x2="24" y2="24"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="20" y1="20" x2="24" y2="20"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="20" y1="16" x2="24" y2="16"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="8" y1="24" x2="12" y2="24"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="8" y1="20" x2="12" y2="20"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="8" y1="16" x2="12" y2="16"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="14" y1="12" x2="18" y2="12"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="20" y1="12" x2="24" y2="12"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="8" y1="12" x2="12" y2="12"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="14" y1="8" x2="18" y2="8"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="20" y1="8" x2="24" y2="8"/> <line fill="none" stroke="#00cc99" stroke-width="2" stroke-miterlimit="10" x1="8" y1="8" x2="12" y2="8"/> </g>
+                        
+                        </svg>
+                    </span>
+                    <p class="text-justify">
+                        <span class="font-semibold cust-green whitespace-nowrap">Funder: </span>{{ project.funder }}
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <span class="mr-2">
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="#00cc99" xmlns="http://www.w3.org/2000/svg" stroke="#00cc99">
+
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <g id="SVGRepo_iconCarrier"> <path d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                            
+                            </svg>
+                    </span>
+                    <p class="text-justify">
+                        <span class="font-semibold cust-green whitespace-nowrap">Project Location: </span>{{ project.project_location }}
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <span class="mr-2">
+                        <svg fill="#00cc99" width="23px" height="23px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <g id="SVGRepo_iconCarrier"> <g id="Download_x5F_25_x25_"> </g> <g id="Download_x5F_50_x25_"> </g> <g id="Download_x5F_75_x25_"> </g> <g id="Download_x5F_100_x25_"> </g> <g id="Upload"> </g> <g id="Next"> </g> <g id="Last"> </g> <g id="OK"> </g> <g id="Fail"> </g> <g id="Add"> </g> <g id="Spinner_x5F_0_x25_"> </g> <g id="Spinner_x5F_25_x25_"> </g> <g id="Spinner_x5F_50_x25_"> </g> <g id="Spinner_x5F_75_x25_"> </g> <g id="Brightest_x5F_25_x25_"> </g> <g id="Brightest_x5F_50_x25_"> </g> <g id="Brightest_x5F_75_x25_"> </g> <g id="Brightest_x5F_100_x25_"> </g> <g id="Reload"> </g> <g id="Forbidden"> </g> <g id="Clock"> </g> <g id="Compass"> </g> <g id="World"> </g> <g id="Speed"> </g> <g id="Microphone"> </g> <g id="Options"> </g> <g id="Chronometer"> </g> <g id="Lock"> </g> <g id="User"> </g> <g id="Position"> <circle fill="none" stroke="#00cc99" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="50.188" cy="50" r="23.188"/> <circle fill="none" stroke="#00cc99" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="50.188" cy="50" r="7.199"/> <line fill="none" stroke="#00cc99" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="50" y1="22" x2="50" y2="26"/> <line fill="none" stroke="#00cc99" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="50" y1="74" x2="50" y2="78"/> <line fill="none" stroke="#00cc99" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="22" y1="50" x2="26" y2="50"/> <line fill="none" stroke="#00cc99" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="74" y1="50" x2="78" y2="50"/> </g> <g id="No_x5F_Signal"> </g> <g id="Low_x5F_Signal"> </g> <g id="Mid_x5F_Signal"> </g> <g id="High_x5F_Signal"> </g> <g id="Options_1_"> </g> <g id="Flash"> </g> <g id="No_x5F_Signal_x5F_02"> </g> <g id="Low_x5F_Signal_x5F_02"> </g> <g id="Mid_x5F_Signal_x5F_02"> </g> <g id="High_x5F_Signal_x5F_02"> </g> <g id="Favorite"> </g> <g id="Search"> </g> <g id="Stats_x5F_01"> </g> <g id="Stats_x5F_02"> </g> <g id="Turn_x5F_On_x5F_Off"> </g> <g id="Full_x5F_Height"> </g> <g id="Full_x5F_Width"> </g> <g id="Full_x5F_Screen"> </g> <g id="Compress_x5F_Screen"> </g> <g id="Chat"> </g> <g id="Bluetooth"> </g> <g id="Share_x5F_iOS"> </g> <g id="Share_x5F_Android"> </g> <g id="Love__x2F__Favorite"> </g> <g id="Hamburguer"> </g> <g id="Flying"> </g> <g id="Take_x5F_Off"> </g> <g id="Land"> </g> <g id="City"> </g> <g id="Nature"> </g> <g id="Pointer"> </g> <g id="Prize"> </g> <g id="Extract"> </g> <g id="Play"> </g> <g id="Pause"> </g> <g id="Stop"> </g> <g id="Forward"> </g> <g id="Reverse"> </g> <g id="Next_1_"> </g> <g id="Last_1_"> </g> <g id="Empty_x5F_Basket"> </g> <g id="Add_x5F_Basket"> </g> <g id="Delete_x5F_Basket"> </g> <g id="Error_x5F_Basket"> </g> <g id="OK_x5F_Basket"> </g> </g>
+                            
+                            </svg>
+                    </span>
+                    <p class="text-justify">
+                        <span class="font-semibold cust-green whitespace-nowrap">Scope Of Service: </span>{{ project.scope_of_service }}
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <span class="mr-2">
+                        <svg fill="#00cc99" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <g id="SVGRepo_iconCarrier"> <path d="M20 10V7C20 5.89543 19.1046 5 18 5H6C4.89543 5 4 5.89543 4 7V10M20 10V19C20 20.1046 19.1046 21 18 21H6C4.89543 21 4 20.1046 4 19V10M20 10H4M8 3V7M16 3V7" stroke="#00cc99" stroke-width="2" stroke-linecap="round"/> <rect x="6" y="12" width="3" height="3" rx="0.5" fill="#00cc99"/> <rect x="10.5" y="12" width="3" height="3" rx="0.5" fill="#00cc99"/> <rect x="15" y="12" width="3" height="3" rx="0.5" fill="#00cc99"/> </g>
+                            
+                            </svg>
+                    </span>
+                    <p class="text-justify">
+                        <span class="font-semibold cust-green whitespace-nowrap">Period: </span>{{ project.period }}
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <span class="mr-2">
+                        <svg fill="#00cc99" width="20px" height="20px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" stroke="#00cc99">
+
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                            <g id="SVGRepo_iconCarrier">
+                            
+                            <path d="M429.811 577.1l-80.485-86.309c-21.425-22.976-57.42-24.233-80.396-2.807s-24.233 57.42-2.807 80.396l81.839 87.762-.158.152 43.493 45.038c19.643 20.341 52.056 20.907 72.397 1.264l35.686-34.462 8.195-7.642-.133-.143 251.802-243.163c22.607-21.832 23.236-57.857 1.405-80.464s-57.857-23.236-80.464-1.405L429.812 577.1zM512 1024C229.23 1024 0 794.77 0 512S229.23 0 512 0s512 229.23 512 512-229.23 512-512 512z"/>
+                            
+                            </g>
+                            
+                            </svg>
+                    </span>
+                    <p class="text-justify">
+                        <span class="font-semibold cust-green whitespace-nowrap">Status: </span>{{ project.status }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% if gallery_images %}
+        <div class="mt-16 padMain">
+            <h2 class="text-xl font-bold">Project Gallery</h2>
+            <div class="flex flex-wrap gap-4 mt-8">
+                {% for gallery_image in gallery_images %}
+                    <img src="{{ gallery_image.image_url }}"
+                         alt="Gallery Image {{ gallery_image.id }}"
+                         class="w-48 h-48 object-cover rounded-lg shadow-lg cursor-pointer"
+                         onclick="openLightbox('{{ gallery_image.image_url }}')">
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden flex items-center justify-center" onclick="closeLightbox()">
+            <img id="lightbox-img" class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg">
+        </div>
+        
+
+        
+    </div>
+    {% else %}
+    <!-- Fallback if no projects are available -->
+    <div class="col-span-1 md:col-span-4 text-center py-20">
+        <h2 class="text-2xl font-bold text-gray-800">No Project Available</h2>
+        <p class="text-gray-600 mt-4">Currently, there is no project to display. Please check back later or contact us for more information.</p>
+    </div>
+    {% endif %}
+</section>
+
+<script>
+    function openLightbox(src) {
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        img.src = src;
+        lightbox.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.add('hidden');
+    }
+</script>
+
+{% endblock %}

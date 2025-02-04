@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+:root {
+    --primary-color: rgb(0, 204, 153);
+    --primary-color-rgb: 0, 204, 153;
+    --text-color: rgb(100, 116, 139);
+    --background-color: #F9FAFB;
+    --text-dark-color: rgb(30, 41, 59);
+    --overlay-color-light: rgba(0, 0, 0, 0.5);
+    --overlay-color-dark: rgba(0, 0, 0, 0.7);
+    --header-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    font-family: "Open Sans", serif;
+    font-style: normal;
+}
+
+.nav-item {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    font-style: normal;
+    color: var(--text-color);
+    padding: 0rem 2.5rem;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+
+
+#desktop > .nav-item, #desktop > div > .nav-item  {
+    border-right: 1px solid var(--text-color);
+}
+
+#desktop > .nav-item:first-child {
+    border-left: 1px solid var(--text-color);
+}
+
+
+.nav-item:hover, .nav-item.active {
+    color: var(--primary-color) !important;
+}
+
+@media (min-width: 768px) {
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        margin-top: 0rem;
+        width: 16rem;
+        background-color: var(--background-color);
+        border-radius: 0.375rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+.cust-nav-text-color > a,  .cust-nav-text-color > div > button {
+    color: white !important;
+}
+
+.cust-nav-text-color > a:hover, .cust-nav-text-color > a.active {
+    color: var(--primary-color) !important;
+}
+
+.header-shadow {
+    box-shadow: 0 2px 4px var(--header-shadow);
+    background-color: var(--background-color);
+}
+
+.cust-bg {
+    background-color: var(--background-color);
+}
+
+.padMain {
+    padding: 0 16%; /* Default for large screens (1536px and above) */
+}
+
+@media (max-width: 1536px) {
+    .padMain {
+        padding: 0 11%; /* For 1536px screens */
+    }
+}
+
+@media (max-width: 1280px) {
+    .padMain {
+        padding: 0 9%; /* For 1280px screens */
+    }
+
+    .nav-item {
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .padMain {
+        padding: 0 7%; /* For 1024px screens */
+    }
+    .nav-item {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .padMain {
+        padding: 0 5%; /* For 900px screens */
+    }
+    .nav-item {
+        padding: 0 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .padMain {
+        padding: 0 3%; /* For 768px and smaller screens */
+    }
+}
+
+@media (max-width: 640px) {
+    .padMain {
+        padding: 0 2%; /* For very small screens */
+    }
+}
+
+.cust-badge {
+    color: var(--primary-color);
+    font-weight: 500; 
+    background-color: rgba(var(--primary-color-rgb), 0.1); 
+    padding-top: 0.25rem; /* py-1 */
+    padding-bottom: 0.25rem; /* py-1 */
+    padding-left: 1rem; /* px-2 */
+    padding-right: 1rem; /* px-2 */
+    border-radius: 9999px; /* rounded-full */
+    margin-bottom: 1.5rem; /* mb-6 */
+    font-size: 0.875rem /* 14px */;
+    line-height: 1.25rem ;
+    text-transform: uppercase;
+}
+
+.cust-text {
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.cust-green {
+    color: var(--primary-color);
+}
+
+.cust-text-dark {
+    color: var(--text-dark-color);
+}
+
+.cust-green-dark {
+    color: var(--primary-color-dark);
+}
+
+.cust-bg-dark {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+}
+
+.cust-bg-green {
+    background-color: var(--primary-color);
+}
+
+.cust-border-green {
+    border-color: var(--primary-color) !important;
+    background: #ff4757;
+}
+
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-in-up {
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+
+
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-in {
+    animation: slideIn 0.5s ease-in-out;
+  }
+
+
+
+
+  /* About Page */
+
+  .about-fade-in {
+    animation: aboutFadeIn 1s ease-out;
+}
+
+@keyframes aboutFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.about-slide-up {
+    animation: aboutSlideUp 1s ease-out;
+}
+
+@keyframes aboutSlideUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Tailwind custom classes for smooth hover transition */
+.about-transition-opacity {
+    transition: opacity 0.3s ease;
+}
+
+
+/* Services */
+.sidebarItems:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+
+
+.splide__slide {
+    position: relative;
+    text-align: center;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.splide__arrow {
+    scale: 1.5;
+}
+
+.splide__arrow:hover {
+    background: var(--primary-color);
+}
+
+/* Positioning Arrows */
+.splide__arrow--prev {
+    left: -80px;
+}
+
+.splide__arrow--next {
+    right: -80px;
+}
+
+/* Custom Pagination Dots */
+.splide__pagination__page {
+    background: #ff4757;
+    border: 2px solid white;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+.splide__pagination__page.is-active {
+    background: var(--primary-color);
+    transform: scale(1.3);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
+
+
+
+.gradient-border {
+    border-image: linear-gradient(to right, #1f2937, #2d3748) 1;
+}
+
+.gradient-bg {
+    background-image: linear-gradient(to right, #1f2937, #2d3748);
+}
+
+
+.hover\:border-custom-blue:hover {
+    border-color: rgb(0, 204, 153);
+}
+.bg-custom-blue-light {
+    background-color: rgb(0, 204, 153, 0.1); /* Light version for background */
+}
+.text-custom-blue-dark {
+    color: rgb(0, 204, 153);
+}
+/* Hover states */
+.group:hover .group-hover\:bg-custom-blue-dark {
+    background-color: rgb(0, 204, 153); /* Darker version for hover */
+}
+.group:hover .group-hover\:text-white {
+    color: white;
+}
+.group:hover .group-hover\:text-custom-blue-dark {
+    color: rgb(0, 204, 153); /* Darker text color when hovered */
+}
