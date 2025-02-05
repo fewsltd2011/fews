@@ -8,6 +8,22 @@
     {% endif %}
 {% endblock %}
 
+{% block description %}
+    {% if blog %}
+        {{ blog.desc }}
+    {% else %}
+        Blog not found description.
+    {% endif %}
+{% endblock %}
+
+{% block keywords %}
+    {% if blog %}
+        {{ blog.title }}, blog, {{ blog.created_at | parse_date_year }}
+    {% else %}
+        blog, not found
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 <section class="w-full min-h-[85vh] pt-40 pb-16 bg-white padMain">
   <div class="max-w-4xl mx-auto px-6">

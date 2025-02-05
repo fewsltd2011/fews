@@ -9,6 +9,22 @@
     {% endif %}
 {% endblock %}
 
+{% block description %}
+    {% if project %}
+        {{ project.desc }}
+    {% else %}
+        Default description
+    {% endif %}
+{% endblock %}
+
+{% block keywords %}
+    {% if project %}
+        {{ project.title }}, {{ project.client }}, {{ project.project_location }}
+    {% else %}
+        default, project, keywords
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 
 <!-- Hero Section -->

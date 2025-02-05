@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}{% endblock %}">
+    <meta name="author" content="Faith Engineering Works and Services LTD (FEWS LTD) ">
+
+    <link rel="canonical" href="{{ request.url }}">
+
+    <meta name="robots" content="index, follow">
+
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
