@@ -1,7 +1,7 @@
 from datetime import datetime
 import os
 import re
-from flask import Flask, flash, redirect, render_template, request, url_for
+from flask import Flask, flash, redirect, render_template, request, send_from_directory, url_for
 from flask.cli import with_appcontext
 from flask_migrate import Migrate
 from config import Config
@@ -342,6 +342,14 @@ def contact_us():
 
     return render_template("contact-us.html")
 
+@app.route('/robots.txt')
+def serve_robots():
+    return send_from_directory('static', 'robots.txt')
+
+
+@app.route('/sitemap.xml')
+def serve_sitemap():
+    return send_from_directory('static', 'sitemap.xml')
 
 @app.errorhandler(404)
 def not_found(error):

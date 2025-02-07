@@ -34,7 +34,7 @@
       <p class="text-sm text-gray-500 mt-2">Published on {{ blog.created_at | parse_date_year }}</p>
       
       <!-- Blog Image -->
-      <img src="{{ blog.image_url }}" alt="Landscape" class="w-full h-96 object-cover mt-6 rounded-lg shadow-md">
+      <img src="{{ blog.image_url }}" alt="Landscape" class="w-full h-96 object-cover mt-6 rounded-lg shadow-md" loading="lazy">
       
       <!-- Blog Content -->
       <div class="mt-8 text-gray-700 leading-relaxed">

@@ -25,8 +25,9 @@
         <nav class="w-full">
             <div class="w-full flex justify-between padMain items-center bg-white py-3">
                 <!-- Logo -->
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" id="logo" class="h-16" height="200px">
-    
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" id="logo" class="h-16" height="200px" loading="lazy">
+                </a>
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">

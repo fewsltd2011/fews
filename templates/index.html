@@ -8,8 +8,6 @@
 
 {% block content %}
 
-<!-- About Section -->
-
 <section class="splide mt-[80px] md:mt-0" id="image-slider">
     <div class="splide__track">
         <ul class="splide__list">
@@ -17,7 +15,7 @@
 
             {% for slide in slides %}
             <li class="splide__slide relative">
-                <img src="{{ slide.image_url }}" alt="Image 1" class="h-[600px] w-full object-cover">
+                <img src="{{ slide.image_url }}" alt="Image 1" class="h-[600px] w-full object-cover" loading="lazy">
                 <!-- Black Overlay -->
                 <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
                     <div class="text-center text-white drop-shadow-2xl animate-fade-in">
@@ -157,10 +155,11 @@
       <!-- Right Image -->
       <div class="relative h-full">
         <img 
-          src="{{ url_for('static', filename='images/slide2.jpg') }}" 
+          src="{{ url_for('static', filename='images/image1.jpg') }}" 
           alt="Woman working on a phone" 
           class="rounded-lg shadow-lg h-full object-cover"
           loading="lazy"
+          style="max-height:380px; width: 100%"
         >
         <div class="absolute top-0 right-0 w-24 h-24 cust-bg-dark rounded-full -z-10 transform translate-x-12 translate-y-12"></div>
       </div>
@@ -204,6 +203,7 @@
 </section>
 
 <!-- Blogs Section -->
+{% if news %}
 <section class="w-full index-about padMain pb-16">
     <div class="w-full max-w-6xl mx-auto py-16 text-center">
         <span class="cust-badge">Blogs</span>
@@ -235,7 +235,7 @@
         </a>
     </div>
 </section>
-
+{% endif %}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const splide = new Splide('#image-slider', {
