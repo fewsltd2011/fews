@@ -23,11 +23,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.fewsltd.com/static/pdf/FEWS%20LTD%20ORGANISATION%20STRUCTURE.pdf</loc>
-  <lastmod>2025-02-05T15:19:26+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://www.fewsltd.com/services</loc>
   <lastmod>2025-02-05T15:22:10+00:00</lastmod>
   <priority>0.80</priority>
@@ -63,50 +58,8 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.fewsltd.com/services?q=building-infrastructure</loc>
+  <loc>https://www.fewsltd.com/services</loc>
   <lastmod>2025-02-05T15:22:10+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-<url>
-  <loc>https://www.fewsltd.com/services?q=transportation-infrastructure</loc>
-  <lastmod>2025-02-05T15:22:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.fewsltd.com/services?q=green-agriculture</loc>
-  <lastmod>2025-02-05T15:22:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.fewsltd.com/services?q=water-and-sanitation-infrastructure</loc>
-  <lastmod>2025-02-05T15:22:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.fewsltd.com/services?q=environment-and-social-safeguards</loc>
-  <lastmod>2025-02-05T15:22:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.fewsltd.com/services?q=energy</loc>
-  <lastmod>2025-02-05T15:22:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.fewsltd.com/services?q=differentiator-services</loc>
-  <lastmod>2025-02-05T15:22:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.fewsltd.com/services?q=road-safety</loc>
-  <lastmod>2025-02-05T15:22:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.fewsltd.com/services?q=arbitration</loc>
-  <lastmod>2025-02-05T15:22:10+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
 </urlset>
