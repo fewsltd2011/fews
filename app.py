@@ -275,11 +275,19 @@ def training_request(training_id):
             return redirect(url_for('training_request', training_id=training_id))
 
         except Exception as e:
+            # Rollback the session in case of error
+            db.session.rollback()
+            
             # Log the error for debugging purposes
             app.logger.error(f"An error occurred: {str(e)}")
 
-            # Flash a generic error message to the user
-            flash("An unexpected error occurred while processing your request. Please try again.", "req_creation_error")
+            # Check for duplicate registration
+            if "duplicate key value violates unique constraint" in str(e) or "uq_email_upcoming_training" in str(e):
+                flash("You have already registered for this training with this email address.", "req_creation_error")
+            else:
+                # Flash a generic error message to the user
+                flash("An unexpected error occurred while processing your request. Please try again.", "req_creation_error")
+            
             return render_template("training-hub/training-request.html", training=upcomingTraining.training, upcomingTraining=upcomingTraining)
 
     return render_template("training-hub/training-request.html", training=upcomingTraining.training, upcomingTraining=upcomingTraining)

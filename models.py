@@ -149,13 +149,17 @@ class UpcomingTraining(db.Model):
         }
 
 class TrainingRequest(db.Model):
+    __table_args__ = (
+        db.UniqueConstraint('email', 'upcoming_training_id', name='uq_email_upcoming_training'),
+    )
+    
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(200), nullable=False)
     gender = db.Column(db.String(10), nullable=False)
     organization = db.Column(db.String(200), nullable=False)
     organization_address = db.Column(db.String(500), nullable=False)
     job_title = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(120), nullable=False, unique=True)
+    email = db.Column(db.String(120), nullable=False)
     street_address = db.Column(db.String(500), nullable=False)
     city = db.Column(db.String(100), nullable=False)
     telephone = db.Column(db.String(20), nullable=False)
